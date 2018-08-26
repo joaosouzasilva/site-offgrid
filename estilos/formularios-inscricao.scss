@@ -1,0 +1,115 @@
+//Todos os formulários, até agora, foram escritos com dentro de uma section com esta classe.
+.formularios_lista{
+    @extend %centralizar;
+    @media(min-width: 500px){
+        width: 75%;
+    }
+    @media(min-width: 1000px){
+        width: 50%;
+    }
+}
+
+//Formulários um abaixo do outro ficam com bordas arredondadas só no topo do primeiro e embaixo do último.
+.formulario {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    border: 1px solid #bbb;
+    box-shadow: 1px 1px #ccc;
+    background-color: white;
+    &:first-child{
+        margin-top: 3rem;
+        border-top-right-radius: .5rem;
+        border-top-left-radius: .5rem;
+    }
+    &:last-child{
+        border-bottom-right-radius: .5rem;
+        border-bottom-left-radius: .5rem;
+    }
+    .campo_texto{
+        width: 100%;
+        display: inline-block;
+        font-size: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        box-sizing: border-box;
+        border: 1px solid #aaa;
+        border-radius: 2px;
+        margin-bottom: 1rem;
+        box-shadow: inset 1px 1px #ccc;
+        
+        @media(min-width: 500px) {
+            width: calc(50% - 0.5rem);
+        }
+    }
+    @media(min-width: 500px){
+        .campo_grande {
+            width: 100%;
+        }
+    }
+    @media(min-width: 1000px){
+        .campo_grande {
+            width: 100%;
+        }
+    }
+    
+    h1{
+        font-size: 1.2rem;
+        color: #666;
+        text-align: left;
+        margin-top: 0.8rem;
+        width: 100%;
+    }
+    
+    .botao_enviar{
+        @include fonte(1rem, white, bold);
+        background: linear-gradient(lighten($cor-offgrid, 10), $cor-offgrid);
+        border: 0;
+        border-radius: 0.3rem;
+        box-shadow: 1px 1px #ccc;
+        @extend %centralizar;
+        display: block;
+        margin-top: 1rem;
+        padding: 0.5rem 0.8rem;
+        cursor: pointer;
+        &:hover{
+            background: linear-gradient(lighten($cor-offgrid, 15), lighten($cor-offgrid, 5));
+        }
+    }
+}
+//As próximas duas classes são colocadas por javascript quando as senhas não são iguais nos formulários de inscrição.
+.senha_valida{
+    display: none;
+}
+//Esta também é usada na mensagem de senha incorreta no login.
+.senha_invalida{
+    display: block;
+    width: 100%;
+    color: #fc0400;
+    font-size: .77rem;
+}
+
+//Usada na página de login, para a sessão sobre ficar do lado do formulário.
+.pagina_login{
+    display: flex;
+    flex-wrap: wrap;
+    .sobre{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 2.5rem;
+        p{
+            @include fonte(1.35rem, darken($cor-offgrid, 20), bold);
+        }
+        @media(min-width: 1000px){
+            width: 50%;
+            margin-top: 1rem;
+        }
+    }
+}
+

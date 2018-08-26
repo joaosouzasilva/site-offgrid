@@ -1,0 +1,27 @@
+.titulo_lo{
+    text-align: center;
+    @include fonte(1.77rem, $cor-offgrid, bold);
+}
+
+.oficina_lista{
+    @extend %centralizar;
+    margin-top: 3rem;
+    .oficina_item{
+        //border: 1px solid black;
+        //&:first-child{
+            //border-top-left-radius: .5rem;
+            //border-top-right-radius: .5rem;
+        div{
+            h1{
+               font-size: 1.62rem;
+                color: #333;
+            }
+        }
+    }
+    @media(min-width: 500px){
+        width: 75%;
+    }
+    @media(min-width: 1000px){
+        width: 50%;
+    }
+}

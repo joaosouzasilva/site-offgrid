@@ -1,0 +1,12 @@
+%centralizar{
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+@mixin fonte($tamanho: false, $cor: false, $negrito: false, $linha: false){
+    @if $tamanho { font-size: $tamanho; }
+    @if $cor { color: $cor; }
+    @if $negrito { font-weight: $negrito; }
+    @if $linha { line-height: $linha; }
+}
