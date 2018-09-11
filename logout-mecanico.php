@@ -1,5 +1,6 @@
 <?php
 include("logica-login.php");
 logoutM();
-header("Location: index.php?logout_m=true");
+$_SESSION["logout_sucesso_m"] = "Você saiu";
+header("Location: index");
 die();

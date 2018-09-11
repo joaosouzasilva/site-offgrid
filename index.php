@@ -44,9 +44,9 @@
                         <?php } unset($_SESSION["deslogado_m"])
                         ?>
                         <?php
-                        if(isset($_GET["logout_m"]) && $_GET["logout_m"]==true){ ?>
-                            <p class="senha_invalida">Você saiu.</p>
-                        <?php }
+                        if(isset($_SESSION["logout_sucesso_m"])){ ?>
+                            <p class="senha_invalida"><?=$_SESSION["logout_sucesso_m"]?></p>
+                        <?php } unset($_SESSION["logout_sucesso_m"])
                         ?>
                         <div class="divisao">
                             <hr class="linha_div">
@@ -66,9 +66,9 @@
                         <?php } unset($_SESSION["deslogado_c"])
                         ?>
                         <?php
-                        if(isset($_GET["logout_c"]) && $_GET["logout_m"]==true){ ?>
-                            <p class="senha_invalida">Você saiu.</p>
-                        <?php }
+                        if(isset($_SESSION["logout_sucesso_c"])){ ?>
+                            <p class="senha_invalida"><?=$_SESSION["logout_sucesso_c"]?></p>
+                        <?php } unset($_SESSION["logout_sucesso_c"])
                         ?>
                         <div class="divisao">
                             <hr class="linha_div">

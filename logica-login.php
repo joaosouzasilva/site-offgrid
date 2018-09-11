@@ -27,8 +27,10 @@ function logaC($email){
     $_SESSION["cliente_logado"] = $email;
 }
 function logoutM(){
-    unset($_SESSION["mecanico_logado"]);
+    session_destroy();
+    session_start();
 }
 function logoutC(){
-    unset($_SESSION["cliente_logado"]);
+    session_destroy();
+    session_start();
 }
