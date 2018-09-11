@@ -43,6 +43,11 @@
                             <p class="senha_invalida"><?=$_SESSION["deslogado_m"]?></p>
                         <?php } unset($_SESSION["deslogado_m"])
                         ?>
+                        <?php
+                        if(isset($_GET["logout_m"]) && $_GET["logout_m"]==true){ ?>
+                            <p class="senha_invalida">Você saiu.</p>
+                        <?php }
+                        ?>
                         <div class="divisao">
                             <hr class="linha_div">
                             <p>ou</p>
@@ -59,6 +64,11 @@
                         if(isset($_SESSION["deslogado_c"])){ ?>
                             <p class="senha_invalida"><?=$_SESSION["deslogado_c"]?></p>
                         <?php } unset($_SESSION["deslogado_c"])
+                        ?>
+                        <?php
+                        if(isset($_GET["logout_c"]) && $_GET["logout_m"]==true){ ?>
+                            <p class="senha_invalida">Você saiu.</p>
+                        <?php }
                         ?>
                         <div class="divisao">
                             <hr class="linha_div">
