@@ -7,7 +7,6 @@ if($cliente == null){
     $_SESSION["deslogado_c"] = "Usuário ou senha invalida";
     header("Location: index");
 }else{
-    $_SESSION["logado_c"] = "Usuário logado";
     logaC($cliente["email_cliente"]);
     header("Location: avaliar");
 }

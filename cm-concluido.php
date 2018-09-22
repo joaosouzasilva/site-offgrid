@@ -33,6 +33,7 @@ if($mecanico == null)
     $senha_mecanico = $_POST["senha_mecanico"];
 
     if(cadastraM($conexao, $nome_oficina, $telefone_mecanico, $cnpj, $cep_oficina, $estado_oficina, $cidade_oficina, $bairro_oficina, $endereco_oficina, $numero_endereco, $complemento, $nome_mecanico, $email_mecanico, $celular_mecanico, $senha_mecanico)){
+        logaM($mecanico["email_mecanico"]);
         header("Location: avaliacoes");
     }else{
         header("Location: cadastro-mecanico");

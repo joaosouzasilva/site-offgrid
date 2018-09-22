@@ -57,7 +57,7 @@
                     </form>
                     <form class="formulario" action="lc-concluido.php" method="post">
                         <h1>Clientes</h1>
-                        <input class="campo_texto" name="login_cliente" placeholder="Email">
+                        <input class="campo_texto" name="email_cliente" placeholder="Email">
                         <input class="campo_texto" name="senha_cliente" placeholder="Senha" type="password">
                         <button type="submit" class="botao_enviar">Login</button>
                         <?php

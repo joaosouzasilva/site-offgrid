@@ -10,6 +10,7 @@ if($mecanico == null)
     $nome_cliente = $_POST["nome_cliente"];
 
     if(cadastraC($conexao, $email_cliente, $senha_cliente, $nome_cliente)){
+        logaC($cliente["email_cliente"]);
         header("Location: avaliar");
     }else{
         header("Location: cadastro-cliente");

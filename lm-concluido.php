@@ -7,7 +7,6 @@ if($mecanico == null){
     $_SESSION["deslogado_m"] = "Usuário ou senha invalida";
     header("Location: index");
 }else{
-    $_SESSION["logado_m"] = "Usuário logado";
     logaM($mecanico["email_mecanico"]);
     header("Location: avaliacoes");
 }
