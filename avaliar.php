@@ -34,7 +34,8 @@
         <main class="conteudo">
             <h1 class="titulo_lo">Avalie uma oficina</h1>
             <section class="oficina_lista">
-                <?php while($oficinas = mysqli_fetch_assoc($resultado)){?>
+                <?php
+                while($oficinas = mysqli_fetch_assoc($resultado)){?>
                 <div class="oficina_item">
                     <div>
                         <h1><?= $oficinas['nome_oficina']; ?></h1>
