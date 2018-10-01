@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <?php include("logica-login.php"); ?>
+    <?php require_once("logica-login.php"); ?>
     <head>
         <title>OffGrid</title>
         <meta charset="utf-8">

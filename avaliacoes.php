@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <?php
-    include("logica-login.php");
+    require_once("logica-login.php");
     verificaLoginM();
     ?>
     <head>

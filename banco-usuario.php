@@ -1,4 +1,5 @@
 <?php
+require_once("conecta.php");
 function buscaUsuarioM($conexao, $email, $senha){
     $senhaMD5 = md5($senha);
     $email = mysqli_real_escape_string($conexao, $email);

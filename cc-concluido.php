@@ -1,6 +1,5 @@
 <?php
-include("conecta.php");
-include("banco-usuario.php");
+require_once("banco-usuario.php");
 
 $cliente = buscaUsuarioCC($conexao, $_POST["email_mecanico"]);
 if($mecanico == null)

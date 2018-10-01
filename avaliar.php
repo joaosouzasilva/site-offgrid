@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
     <?php
-    include("logica-login.php");
+    require_once("logica-login.php");
     verificaLoginC();
-    include("conecta.php");
     $resultado = mysqli_query($conexao, "select * from mecanicos");
     ?>
     <head>
