@@ -28,7 +28,7 @@
         <main class="conteudo">
             <h1 class="titulo">Criar conta - Mecânico</h1>
             <section class="formularios_lista">
-                <form class="formulario" action="cm-concluido.php" method="post">
+                <form class="formulario" action="cm-concluido.php" method="post" accept-charset="utf-8">
                     <h1>Dados da oficina</h1>
                     <input class="campo_texto campo_grande" name="nome_oficina" placeholder="Nome da oficina *" required>
                     <input class="campo_texto" name="telefone_mecanico" placeholder="Telefone" type="tel" required>

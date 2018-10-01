@@ -28,7 +28,7 @@
         <main class="conteudo">
             <h1 class="titulo">Criar conta - Cliente</h1>
             <section class="formularios_lista">
-                <form class="formulario" action="cc-concluido.php" method="post">
+                <form class="formulario" action="cc-concluido.php" method="post" accept-charset="utf-8">
                     <h1>Insira seus dados</h1>
                     <input class="campo_texto" name="nome_cliente" placeholder="Nome completo *" required>
                     <input class="campo_texto" name="email_cliente" placeholder="Email *" required>

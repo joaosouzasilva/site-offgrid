@@ -1,6 +1,7 @@
 <?php
 function buscaUsuarioM($conexao, $email, $senha){
     $senhaMD5 = md5($senha);
+    $email = mysqli_real_escape_string($conexao, $email);
     $query = "select * from mecanicos where email_mecanico = '{$email}' and senha_mecanico = '{$senhaMD5}'";
     $resultado = mysqli_query($conexao, $query);
     $usuario = mysqli_fetch_assoc($resultado);
@@ -8,18 +9,21 @@ function buscaUsuarioM($conexao, $email, $senha){
 }
 function buscaUsuarioC($conexao, $email, $senha){
     $senhaMD5 = md5($senha);
+    $email = mysqli_real_escape_string($conexao, $email);
     $query = "select * from clientes where email_cliente = '{$email}' and senha_cliente = '{$senhaMD5}'";
     $resultado = mysqli_query($conexao, $query);
     $usuario = mysqli_fetch_assoc($resultado);
     return $usuario;
 }
 function buscaUsuarioMC($conexao, $email){
+    $email = mysqli_real_escape_string($conexao, $email);
     $query = "select * from mecanicos where email_mecanico = '{$email}'";
     $resultado = mysqli_query($conexao, $query);
     $usuario = mysqli_fetch_assoc($resultado);
     return $usuario;
 }
 function buscaUsuarioCC($conexao, $email){
+    $email = mysqli_real_escape_string($conexao, $email);
     $query = "select * from clientes where email_cliente = '{$email}'";
     $resultado = mysqli_query($conexao, $query);
     $usuario = mysqli_fetch_assoc($resultado);
