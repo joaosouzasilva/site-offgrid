@@ -36,9 +36,10 @@
                 <?php
                 while($oficinas = mysqli_fetch_assoc($resultado)){?>
                 <div class="oficina_item">
-                    <div>
-                        <h1><?= $oficinas['nome_oficina']; ?></h1>
-                    </div>
+                    <h1><?= $oficinas['nome_oficina']; ?></h1>
+                    <h2>Endereço: <?= $oficinas['endereco_oficina']; ?></h2>
+                    <h2>Nº: <?= $oficinas['numero_endereco']; ?></h2>
+                    <h2>Bairro: <?= $oficinas['bairro_oficina']; ?></h2>
                 </div><?php } ?>
             </section>
         </main>
