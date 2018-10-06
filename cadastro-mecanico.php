@@ -31,7 +31,7 @@
                 <form class="formulario" action="cm-concluido.php" method="post" accept-charset="utf-8">
                     <h1>Dados da oficina</h1>
                     <input class="campo_texto campo_grande" name="nome_oficina" placeholder="Nome da oficina *" required>
-                    <input class="campo_texto" name="telefone_mecanico" placeholder="Telefone" type="tel" required>
+                    <input class="campo_texto" name="telefone_oficina" placeholder="Telefone" type="tel" required>
                     <input class="campo_texto" name="cnpj" placeholder="CNPJ" required>
                     <h1>Endereço da oficina</h1>
                     <input class="campo_texto" name="cep_oficina" placeholder="CEP" type="number" required>

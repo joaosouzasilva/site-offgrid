@@ -5,7 +5,7 @@ $mecanico = buscaUsuarioMC($conexao, $_POST["email_mecanico"]);
 if($mecanico == null)
 {
     $nome_oficina = $_POST["nome_oficina"];
-    $telefone_mecanico = $_POST["telefone_mecanico"];
+    $telefone_oficina = $_POST["telefone_oficina"];
     $cnpj = $_POST["cnpj"];
     $cep_oficina = $_POST["cep_oficina"];
     $estado_oficina = $_POST["estado_oficina"];
@@ -31,7 +31,7 @@ if($mecanico == null)
     }
     $senha_mecanico = $_POST["senha_mecanico"];
 
-    if(cadastraM($conexao, $nome_oficina, $telefone_mecanico, $cnpj, $cep_oficina, $estado_oficina, $cidade_oficina, $bairro_oficina, $endereco_oficina, $numero_endereco, $complemento, $nome_mecanico, $email_mecanico, $celular_mecanico, $senha_mecanico)){
+    if(cadastraM($conexao, $nome_oficina, $telefone_oficina, $cnpj, $cep_oficina, $estado_oficina, $cidade_oficina, $bairro_oficina, $endereco_oficina, $numero_endereco, $complemento, $nome_mecanico, $email_mecanico, $celular_mecanico, $senha_mecanico)){
         logaM($mecanico["email_mecanico"]);
         header("Location: avaliacoes");
     }else{
