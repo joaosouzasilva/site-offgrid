@@ -1,0 +1,26 @@
+.map_caixa{
+    position: relative;
+    width: 100%;
+}
+@media(min-width: 500px){
+    .map_caixa{
+        width: 75%;
+    }
+}
+@media(min-width: 500px){
+    .map_caixa{
+        width: 50%;
+    }
+}
+.map_caixa:before{
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+#map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
