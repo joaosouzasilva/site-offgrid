@@ -1,4 +1,9 @@
+.avaliar_oficina{
+    display: flex;
+    flex-wrap: wrap;
+}
 .map_caixa{
+    margin-top: 3rem;
     position: relative;
     width: 100%;
 }
@@ -7,9 +12,9 @@
         width: 75%;
     }
 }
-@media(min-width: 500px){
+@media(min-width: 1000px){
     .map_caixa{
-        width: 50%;
+        width: 45%;
     }
 }
 .map_caixa:before{
@@ -23,4 +28,77 @@
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+
+.de_sua_nota{
+    width: 40%;
+}
+
+.rating {
+    display: inline-block;
+    position: relative;
+    height: 2.6rem;
+    line-height: 2.6rem;
+    font-size: 2.6rem;
+    @extend %centralizar;
+    
+}
+
+.rating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.rating label:last-child {
+  position: static;
+}
+
+.rating label:nth-child(1) {
+  z-index: 5;
+}
+
+.rating label:nth-child(2) {
+  z-index: 4;
+}
+
+.rating label:nth-child(3) {
+  z-index: 3;
+}
+
+.rating label:nth-child(4) {
+  z-index: 2;
+}
+
+.rating label:nth-child(5) {
+  z-index: 1;
+}
+
+.rating label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.rating label .icon {
+  float: left;
+  color: transparent;
+}
+
+.rating label:last-child .icon {
+  color: #000;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+  color: #09f;
+}
+
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+  color: #000;
+  text-shadow: 0 0 5px #09f;
 }

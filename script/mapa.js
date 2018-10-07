@@ -24,3 +24,7 @@ function geocodeAddress(geocoder, resultsMap) {
         }
     });
 }
+
+$(':radio').change(function() {
+  console.log('New star rating: ' + this.value);
+});
