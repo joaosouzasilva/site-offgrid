@@ -3,9 +3,9 @@
     <?php
     require_once("logica-login.php");
     verificaLoginC();
-    $cep = $_GET["of"];
-    $cep = mysqli_real_escape_string($conexao, $cep);
-    $query = "select * from mecanicos where cep_oficina = '{$cep}'";
+    $id = $_GET["of"];
+    $id = mysqli_real_escape_string($conexao, $id);
+    $query = "select * from mecanicos where id = '{$id}'";
     $resultado = mysqli_query($conexao, $query);
     $mecanico = mysqli_fetch_assoc($resultado);
     $endereco = $mecanico["endereco_oficina"];

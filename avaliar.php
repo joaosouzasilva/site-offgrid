@@ -6,7 +6,7 @@
     $resultado = mysqli_query($conexao, "select * from mecanicos");
     ?>
     <head>
-        <title>Faça seu cadastro - OffGrid</title>
+        <title>Lista de oficinas - OffGrid</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="imagens/icon.jpg">
@@ -36,7 +36,7 @@
                 <?php
                 while($oficinas = mysqli_fetch_assoc($resultado)){?>
                 <div class="oficina_item">
-                    <a href="oficinas?of=<?= $oficinas['cep_oficina']; ?>"><?= $oficinas['nome_oficina']; ?></a>
+                    <a href="oficinas?of=<?= $oficinas['id']; ?>"><?= $oficinas['nome_oficina']; ?></a>
                     <h2>Endereço: <?= $oficinas['endereco_oficina']; ?></h2>
                     <h2>Nº: <?= $oficinas['numero_endereco']; ?></h2>
                     <h2>Bairro: <?= $oficinas['bairro_oficina']; ?></h2>
