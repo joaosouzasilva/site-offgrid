@@ -1,5 +1,6 @@
 <?php
 require_once("banco-usuario.php");
+require_once("logica-login.php");
 
 $mecanico = buscaUsuarioMC($conexao, $_POST["email_mecanico"]);
 if($mecanico == null)
@@ -35,7 +36,7 @@ if($mecanico == null)
         logaM($mecanico["email_mecanico"]);
         header("Location: avaliacoes");
     }else{
-        header("Location: cadastro-mecanico");
+        header("Location: index");
     }
     die();
 }else{

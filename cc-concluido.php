@@ -13,7 +13,7 @@ if($cliente == null)
         logaC($cliente["email_cliente"]);
         header("Location: avaliar");
     }else{
-        header("Location: cadastro-cliente");
+        header("Location: index");
     }
     die();
 }else{
