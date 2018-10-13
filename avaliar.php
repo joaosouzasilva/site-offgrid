@@ -3,7 +3,22 @@
     <?php
     require_once("logica-login.php");
     verificaLoginC();
-    $resultado = mysqli_query($conexao, "select * from mecanicos");
+    $busca = "select * from mecanicos";
+    $total_reg = "10";
+    $pagina=$_GET['pagina'];
+    if (!$pagina) {
+    $pc = "1";
+    } else {
+    $pc = $pagina;
+    }
+    $inicio = $pc - 1;
+    $inicio = $inicio * $total_reg;
+    $limite = mysqli_query($conexao, "$busca LIMIT $inicio, $total_reg");
+    $todos = mysqli_query($conexao, $busca);
+    $tr = mysqli_num_rows($todos);
+    $tp = $tr / $total_reg;
+    $anterior = $pc -1;
+    $proximo = $pc +1;
     ?>
     <head>
         <title>Lista de oficinas - OffGrid</title>
@@ -34,12 +49,18 @@
             <h1 class="titulo_lo">Avalie uma oficina</h1>
             <section class="oficina_lista">
                 <?php
-                while($oficinas = mysqli_fetch_assoc($resultado)){?>
+                while($oficinas = mysqli_fetch_assoc($limite)){?>
                 <div class="oficina_item">
                     <a href="oficinas?of=<?= $oficinas['id']; ?>"><?= $oficinas['nome_oficina']; ?></a>
                     <h2>Endereço: <?= $oficinas['endereco_oficina']; ?></h2>
                     <h2>Nº: <?= $oficinas['numero_endereco']; ?></h2>
                     <h2>Bairro: <?= $oficinas['bairro_oficina']; ?></h2>
+                    <?php 
+                    if ($pc>1) {?>
+                    <a href='?pagina=<?= $anterior; ?>'>Anterior</a>
+                    <?php }
+                    if ($pc<$tp) {?>
+                    <a href='?pagina=<?= $proximo; ?>'>Próximo</a><?php } ?>
                 </div><?php } ?>
             </section>
         </main>
