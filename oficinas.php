@@ -42,50 +42,48 @@
                 <div class="map_caixa">
                     <div id="map"></div>
                 </div>
-                <section class="formularios_lista">
-                    <form class="formulario" action="avaliacao-enviada.php" method="post">
-                        <section class="avaliacao_texto">
-                            <h1>Avaliar oficinca</h1>
-                            <textarea rows="7" maxlength="255" class="campo_texto" name="texto" placeholder="Comentário"></textarea>
-                        </section>
-                        <section class="de_sua_nota">
-                            <h1>Dê sua nota</h1>
-                            <div class="rating">
-                                <label>
-                                    <input type="radio" name="nota" value="1" />
-                                    <span class="icon">★</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="nota" value="2" />
-                                    <span class="icon">★</span>
-                                    <span class="icon">★</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="nota" value="3" />
-                                    <span class="icon">★</span>
-                                    <span class="icon">★</span>
-                                    <span class="icon">★</span>   
-                                </label>
-                                <label>
-                                    <input type="radio" name="nota" value="4" />
-                                    <span class="icon">★</span>
-                                    <span class="icon">★</span>
-                                    <span class="icon">★</span>
-                                    <span class="icon">★</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="nota" value="5" />
-                                    <span class="icon">★</span>
-                                    <span class="icon">★</span>
-                                    <span class="icon">★</span>
-                                    <span class="icon">★</span>
-                                    <span class="icon">★</span>
-                                </label>
-                            </div>
-                        </section>
-                        <button type="submit" class="botao_enviar">Enviar</button>
-                    </form>
-                </section>
+                <form class="formulario_avaliacao" action="avaliacao-enviada.php" method="post">
+                    <section class="avaliacao_texto">
+                        <h1>Avaliar oficinca</h1>
+                        <textarea rows="7" maxlength="255" class="campo_texto" name="texto" placeholder="Comentário"></textarea>
+                    </section>
+                    <section class="de_sua_nota">
+                        <h1>Dê sua nota</h1>
+                        <div class="rating">
+                            <label>
+                                <input type="radio" name="nota" value="1" />
+                                <span class="icon">★</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="nota" value="2" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="nota" value="3" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>   
+                            </label>
+                            <label>
+                                <input type="radio" name="nota" value="4" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="nota" value="5" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                        </div>
+                    </section>
+                    <button type="submit" class="botao_enviar" value="<?= $mecanico["id"]; ?>" name="mecanico_id">Enviar</button>
+                </form>
             </section>
             
         </main>

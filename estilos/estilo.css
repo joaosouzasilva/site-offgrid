@@ -45,7 +45,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.conteudo, .formularios_lista, .formulario .botao_enviar, .oficina_lista, .rating {
+.conteudo, .formularios_lista, .formulario .botao_enviar, .oficina_lista, .avaliar_oficina, .formulario_avaliacao .botao_enviar, .de_sua_nota .rating {
   margin-left: auto;
   margin-right: auto; }
 
@@ -288,19 +288,21 @@ a {
 
 .avaliar_oficina {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start; }
 
 .map_caixa {
   margin-top: 3rem;
   position: relative;
   width: 100%; }
+  @media (min-width: 500px) {
+    .map_caixa {
+      width: 75%; } }
+  @media (min-width: 1000px) {
+    .map_caixa {
+      width: 47%; } }
 
-@media (min-width: 500px) {
-  .map_caixa {
-    width: 75%; } }
-@media (min-width: 1000px) {
-  .map_caixa {
-    width: 45%; } }
 .map_caixa:before {
   content: "";
   display: block;
@@ -313,60 +315,115 @@ a {
   right: 0;
   bottom: 0; }
 
+.avaliacao_texto {
+  width: 100%; }
+  @media (min-width: 1000px) {
+    .avaliacao_texto {
+      width: 50%; } }
+
+.formulario_avaliacao {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2rem;
+  border: 1px solid #bbb;
+  box-shadow: 1px 1px #ccc;
+  background-color: white;
+  margin-top: 3rem;
+  border-top-right-radius: .5rem;
+  border-top-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  border-bottom-left-radius: .5rem; }
+  @media (min-width: 500px) {
+    .formulario_avaliacao {
+      width: 75%; } }
+  @media (min-width: 1000px) {
+    .formulario_avaliacao {
+      width: 48%; } }
+  .formulario_avaliacao .campo_texto {
+    width: 100%;
+    display: inline-block;
+    font-size: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    box-sizing: border-box;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+    box-shadow: inset 1px 1px #ccc; }
+  .formulario_avaliacao h1 {
+    font-size: 1.2rem;
+    color: #666;
+    text-align: left;
+    margin-top: 0.8rem;
+    width: 100%; }
+  .formulario_avaliacao .botao_enviar {
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(#ca770d, #9a5b0a);
+    border: 0;
+    border-radius: 0.3rem;
+    box-shadow: 1px 1px #ccc;
+    display: block;
+    margin-top: 2rem;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer; }
+    .formulario_avaliacao .botao_enviar:hover {
+      background: linear-gradient(#e2850f, #b2690c); }
+
 .de_sua_nota {
-  width: 40%; }
-
-.rating {
-  display: inline-block;
-  position: relative;
-  height: 2.6rem;
-  line-height: 2.6rem;
-  font-size: 2.6rem; }
-
-.rating label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  cursor: pointer; }
-
-.rating label:last-child {
-  position: static; }
-
-.rating label:nth-child(1) {
-  z-index: 5; }
-
-.rating label:nth-child(2) {
-  z-index: 4; }
-
-.rating label:nth-child(3) {
-  z-index: 3; }
-
-.rating label:nth-child(4) {
-  z-index: 2; }
-
-.rating label:nth-child(5) {
-  z-index: 1; }
-
-.rating label input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0; }
-
-.rating label .icon {
-  float: left;
-  color: transparent; }
-
-.rating label:last-child .icon {
-  color: #000; }
-
-.rating:not(:hover) label input:checked ~ .icon,
-.rating:hover label:hover input ~ .icon {
-  color: #09f; }
-
-.rating label input:focus:not(:checked) ~ .icon:last-child {
-  color: #000;
-  text-shadow: 0 0 5px #09f; }
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+  @media (min-width: 1000px) {
+    .de_sua_nota {
+      width: 50%; }
+      .de_sua_nota h1 {
+        text-indent: 1rem; } }
+  .de_sua_nota .rating {
+    display: inline-block;
+    position: relative;
+    height: 2.6rem;
+    line-height: 2.6rem;
+    font-size: 2.6rem;
+    text-align: right;
+    margin: 0 auto; }
+    .de_sua_nota .rating label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%; }
+      .de_sua_nota .rating label:last-child {
+        position: static; }
+      .de_sua_nota .rating label:nth-child(1) {
+        z-index: 5; }
+      .de_sua_nota .rating label:nth-child(2) {
+        z-index: 4; }
+      .de_sua_nota .rating label:nth-child(3) {
+        z-index: 3; }
+      .de_sua_nota .rating label:nth-child(4) {
+        z-index: 2; }
+      .de_sua_nota .rating label:nth-child(5) {
+        z-index: 1; }
+      .de_sua_nota .rating label input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0; }
+      .de_sua_nota .rating label .icon {
+        float: left;
+        color: transparent; }
+      .de_sua_nota .rating label:last-child .icon {
+        color: #000; }
+    .de_sua_nota .rating:not(:hover) label input:checked ~ .icon, .de_sua_nota .rating:hover label:hover input ~ .icon {
+      color: gold; }
+    .de_sua_nota .rating input:focus:not(:checked) ~ .icon:last-child {
+      color: #000;
+      text-shadow: 0 0 5px gold; }
 
 /*# sourceMappingURL=estilo.css.map */

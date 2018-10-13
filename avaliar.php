@@ -55,13 +55,13 @@
                     <h2>Endereço: <?= $oficinas['endereco_oficina']; ?></h2>
                     <h2>Nº: <?= $oficinas['numero_endereco']; ?></h2>
                     <h2>Bairro: <?= $oficinas['bairro_oficina']; ?></h2>
-                    <?php 
-                    if ($pc>1) {?>
-                    <a href='?pagina=<?= $anterior; ?>'>Anterior</a>
-                    <?php }
-                    if ($pc<$tp) {?>
-                    <a href='?pagina=<?= $proximo; ?>'>Próximo</a><?php } ?>
                 </div><?php } ?>
+                <?php 
+                if ($pc>1) {?>
+                <a href='?pagina=<?= $anterior; ?>'>Anterior</a>
+                <?php }
+                if ($pc<$tp) {?>
+                <a href='?pagina=<?= $proximo; ?>'>Próximo</a><?php } ?>
             </section>
         </main>
         <footer class="rodape">
