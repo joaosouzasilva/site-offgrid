@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
     <?php
-    require_once("logica-login.php");
-    verificaLoginC();
+    require_once("banco-usuario.php");
     $busca = "select * from mecanicos";
     $total_reg = "10";
     $pagina=$_GET['pagina'];

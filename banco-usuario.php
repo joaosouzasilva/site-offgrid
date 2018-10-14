@@ -40,3 +40,7 @@ function cadastraC($conexao, $email_cliente, $senha_cliente, $nome_cliente){
     $query = "insert into clientes (email_cliente, senha_cliente, nome_cliente) values ('{$email_cliente}', '{$senhaCMD5}', '{$nome_cliente}')";
     return mysqli_query($conexao, $query);
 }
+function adicionaAvaliacao($conexao, $texto, $nota, $mecanico){
+    $query = "insert into comentarios (texto, nota, mecanico_id) values ('${texto}', '${nota}', '${mecanico}')";
+    return mysqli_query($conexao, $query);
+}

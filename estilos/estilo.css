@@ -376,6 +376,9 @@ a {
     .formulario_avaliacao .botao_enviar:hover {
       background: linear-gradient(#e2850f, #b2690c); }
 
+.mecanico_avaliacao_form {
+  display: none; }
+
 .de_sua_nota {
   width: 100%;
   display: flex;

@@ -33,10 +33,55 @@
                     <p>A OffGrid é o site que une oficinas mecânicas e clientes, oferecendo informações e avaliações dos serviços para que o cliente escolha melhor onde consertar o seu veículo, o mecânico alcance mais clientes e ambos possam interagir de forma prática e segura.</p>
                 </section>
                 <section class="formularios_lista">
+                    <form class="formulario" action="cm-concluido.php" method="post" accept-charset="utf-8">
+                        <h1>Cadastre sua oficina</h1>
+                        <input class="campo_texto campo_grande" name="nome_oficina" placeholder="Nome da oficina *" required>
+                        <input class="campo_texto" name="telefone_oficina" placeholder="Telefone" type="tel" required>
+                        <input class="campo_texto" name="cep_oficina" placeholder="CEP" type="number" required>
+                        <select class="campo_texto" id="estado_oficina" name="estado_oficina" placeholder="Estado" required>
+                            <option value="AC" >Acre</option>
+                            <option value="AL" >Alagoas</option>
+                            <option value="AP" >Amapá</option>
+                            <option value="AM" >Amazonas</option>
+                            <option value="BA" >Bahia</option>
+                            <option value="CE" >Ceará</option>
+                            <option value="DF" >Distrito Federal</option>
+                            <option value="ES" >Espírito Santo</option>
+                            <option value="GO" >Goiás</option>
+                            <option value="MA" >Maranhão</option>
+                            <option value="MT" >Mato Grosso</option>
+                            <option value="MS" >Mato Grosso do Sul</option>
+                            <option value="MG" >Minas Gerais</option>
+                            <option value="PA" >Pará</option>
+                            <option value="PB" >Paraíba</option>
+                            <option value="PR" >Paraná</option>
+                            <option value="PE" >Pernambuco</option>
+                            <option value="PI" >Piauí</option>
+                            <option value="RJ" >Rio de Janeiro</option>
+                            <option value="RN" >Rio Grande do Norte</option>
+                            <option value="RS" >Rio Grande do Sul</option>
+                            <option value="RO" >Rondônia</option>
+                            <option value="RR" >Roraima</option>
+                            <option value="SC" >Santa Catarina</option>
+                            <option value="SP" >São Paulo</option>
+                            <option value="SE" >Sergipe</option>
+                            <option value="TO" >Tocantins</option>
+                        </select>
+                        <input class="campo_texto" name="cidade_oficina" placeholder="Cidade" required>
+                        <input class="campo_texto" name="bairro_oficina" placeholder="Bairro" required>
+                        <input class="campo_texto" name="endereco_oficina" placeholder="Endereço" required>
+                        <input class="campo_texto" name="numero_endereco" placeholder="Número" type="number">
+                        <input class="campo_texto" name="complemento" placeholder="Complemento">
+                        <input class="campo_texto" name="email_mecanico" placeholder="Email *" type="email" required>
+                        <input class="campo_texto" id="senhajs" name="senha_mecanico" placeholder="Crie uma senha *" type="password" required>
+                        <input class="campo_texto" id="senhajs_2" name="senha_mecanico_2" placeholder="Confirmar senha *" type="password" required>
+                        <p class="senha_valida" id="valida_senha">Senhas não conferem</p>
+                        <button type="submit" class="botao_enviar">Enviar</button>
+                    </form>
                     <form class="formulario" action="lm-concluido.php" method="post">
-                        <h1>Mecânicos</h1>
-                        <input class="campo_texto" name="email_mecanico" placeholder="Email">
-                        <input class="campo_texto" name="senha_mecanico" placeholder="Senha" type="password">
+                        <h1>Fazer login</h1>
+                        <input class="campo_texto" name="email_mecanico" placeholder="Email" required>
+                        <input class="campo_texto" name="senha_mecanico" placeholder="Senha" required type="password">
                         <button type="submit" class="botao_enviar">Login</button>
                         <?php
                         if(isset($_SESSION["deslogado_m"])){ ?>
@@ -48,34 +93,6 @@
                             <p class="senha_invalida"><?=$_SESSION["logout_sucesso_m"]?></p>
                         <?php } unset($_SESSION["logout_sucesso_m"])
                         ?>
-                        <div class="divisao">
-                            <hr class="linha_div">
-                            <p>ou</p>
-                            <hr class="linha_div">
-                        </div>
-                        <a href="cadastro-mecanico" class="botao_enviar">Criar conta</a>
-                    </form>
-                    <form class="formulario" action="lc-concluido.php" method="post">
-                        <h1>Clientes</h1>
-                        <input class="campo_texto" name="email_cliente" placeholder="Email">
-                        <input class="campo_texto" name="senha_cliente" placeholder="Senha" type="password">
-                        <button type="submit" class="botao_enviar">Login</button>
-                        <?php
-                        if(isset($_SESSION["deslogado_c"])){ ?>
-                            <p class="senha_invalida"><?=$_SESSION["deslogado_c"]?></p>
-                        <?php } unset($_SESSION["deslogado_c"])
-                        ?>
-                        <?php
-                        if(isset($_SESSION["logout_sucesso_c"])){ ?>
-                            <p class="senha_invalida"><?=$_SESSION["logout_sucesso_c"]?></p>
-                        <?php } unset($_SESSION["logout_sucesso_c"])
-                        ?>
-                        <div class="divisao">
-                            <hr class="linha_div">
-                            <p>ou</p>
-                            <hr class="linha_div">
-                        </div>
-                        <a href="cadastro-cliente" class="botao_enviar">Criar conta</a>
                     </form>
                 </section>
             </div>

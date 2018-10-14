@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
     <?php
-    require_once("logica-login.php");
-    verificaLoginC();
+    require_once("banco-usuario.php");
     $id = $_GET["of"];
     $id = mysqli_real_escape_string($conexao, $id);
     $query = "select * from mecanicos where id = '{$id}'";
