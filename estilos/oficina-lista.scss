@@ -17,20 +17,19 @@
     }
 }
 .oficina_item{
-//    border: 1px solid black;
-//    &:first-child{
-//        border-top-left-radius: .5rem;
-//        border-top-right-radius: .5rem;
-//    }
     display: flex;
     flex-wrap: wrap;
     a{
         width: 100%;
         font-size: 1.62rem;
-        color: #333;
+        color: white;
     }
     h2{
         margin-left: 1rem;
+        color: #f5f5ee;
     }
-    padding-bottom: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+    background-color: $cor-offgrid;
 }

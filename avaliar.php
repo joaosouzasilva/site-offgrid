@@ -3,7 +3,7 @@
     <?php
     require_once("banco-usuario.php");
     $busca = "select * from mecanicos";
-    $total_reg = "10";
+    $total_reg = "20";
     $pagina=$_GET['pagina'];
     if (!$pagina) {
     $pc = "1";
@@ -52,7 +52,8 @@
                 <div class="oficina_item">
                     <a href="oficinas?of=<?= $oficinas['id']; ?>"><?= $oficinas['nome_oficina']; ?></a>
                     <h2>Endereço: <?= $oficinas['endereco_oficina']; ?></h2>
-                    <h2>Nº: <?= $oficinas['numero_endereco']; ?></h2>
+                    <?php if($oficinas['numero_endereco']!=null) {?>
+                    <h2>Nº: <?= $oficinas['numero_endereco']; ?></h2><?php } ?>
                     <h2>Bairro: <?= $oficinas['bairro_oficina']; ?></h2>
                 </div><?php } ?>
                 <?php 

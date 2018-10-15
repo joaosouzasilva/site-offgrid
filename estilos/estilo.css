@@ -55,7 +55,7 @@ html {
 body {
   font-family: "Open Sans", "Verdana", sans-serif;
   line-height: 1.5;
-  background-color: #f4f4f4; }
+  background-color: #fcfcfc; }
 
 .conteudo {
   margin-top: 5rem;
@@ -278,13 +278,17 @@ a {
 .oficina_item {
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 1rem; }
+  padding: 1rem;
+  box-sizing: border-box;
+  margin-bottom: 0.5rem;
+  background-color: #9a5b0a; }
   .oficina_item a {
     width: 100%;
     font-size: 1.62rem;
-    color: #333; }
+    color: white; }
   .oficina_item h2 {
-    margin-left: 1rem; }
+    margin-left: 1rem;
+    color: #f5f5ee; }
 
 .avaliar_oficina {
   display: flex;
