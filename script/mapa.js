@@ -10,7 +10,7 @@ function initMap() {
 }
 
 function geocodeAddress(geocoder, resultsMap) {
-    var address = document.querySelector(".endereco_js").innerHTML;
+    var address = document.querySelector(".endereco_desc").innerHTML;
     console.log(address);
     geocoder.geocode({'address': address}, function(results, status) {
         if (status === 'OK') {

@@ -20,7 +20,7 @@
             <nav class="painel_nav">
                 <ul>
                     <li><a href="https://offgridoficinas.wixsite.com/website">INÍCIO</a></li>
-                    <li><a>OFICINAS</a></li>
+                    <li><a href="oficinas">OFICINAS</a></li>
                     <li><a>OFERTAS</a></li>
                     <li><a>NOVIDADES</a></li>
                 </ul>

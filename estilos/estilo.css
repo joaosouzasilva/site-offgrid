@@ -190,9 +190,8 @@ a {
       width: 100%; } }
   .formulario h1 {
     font-size: 1.2rem;
-    color: #666;
+    color: #444;
     text-align: left;
-    margin-top: 0.8rem;
     width: 100%; }
   .formulario .botao_enviar {
     font-size: 1rem;
@@ -290,14 +289,17 @@ a {
     margin-left: 1rem;
     color: #f5f5ee; }
 
+.endereco_desc {
+  text-indent: 1rem; }
+
 .avaliar_oficina {
+  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: flex-start; }
 
 .map_caixa {
-  margin-top: 3rem;
   position: relative;
   width: 100%; }
   @media (min-width: 500px) {
@@ -335,7 +337,6 @@ a {
   border: 1px solid #bbb;
   box-shadow: 1px 1px #ccc;
   background-color: white;
-  margin-top: 3rem;
   border-top-right-radius: .5rem;
   border-top-left-radius: .5rem;
   border-bottom-right-radius: .5rem;
@@ -361,15 +362,15 @@ a {
     box-shadow: inset 1px 1px #ccc; }
   .formulario_avaliacao h1 {
     font-size: 1.2rem;
-    color: #666;
+    color: #444;
     text-align: left;
-    margin-top: 0.8rem;
-    width: 100%; }
+    width: 100%;
+    margin-bottom: 0.6rem; }
   .formulario_avaliacao .botao_enviar {
     font-size: 1rem;
     color: white;
     font-weight: bold;
-    background: linear-gradient(#ca770d, #9a5b0a);
+    background: linear-gradient(#e2850f, #b2690c);
     border: 0;
     border-radius: 0.3rem;
     box-shadow: 1px 1px #ccc;
@@ -378,7 +379,7 @@ a {
     padding: 0.5rem 0.8rem;
     cursor: pointer; }
     .formulario_avaliacao .botao_enviar:hover {
-      background: linear-gradient(#e2850f, #b2690c); }
+      background: linear-gradient(#ca770d, #9a5b0a); }
 
 .mecanico_avaliacao_form {
   display: none; }
@@ -387,11 +388,14 @@ a {
   width: 100%;
   display: flex;
   flex-direction: column; }
+  .de_sua_nota h1 {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #222;
+    width: 100%; }
   @media (min-width: 1000px) {
     .de_sua_nota {
-      width: 50%; }
-      .de_sua_nota h1 {
-        text-indent: 1rem; } }
+      width: 50%; } }
   .de_sua_nota .rating {
     display: inline-block;
     position: relative;

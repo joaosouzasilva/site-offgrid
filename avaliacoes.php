@@ -3,6 +3,10 @@
     <?php
     require_once("logica-login.php");
     verificaLoginM();
+    require_once("banco-usuario.php");
+    $mecanico = buscaUsuarioMC($conexao, $_SESSION["mecanico_logado"]);
+    $query = "select * from comentarios where mecanico_id = '{$mecanico['id']}'";
+    $comentarios = mysqli_query($conexao, $query);
     ?>
     <head>
         <title>Avaliações - OffGrid</title>
@@ -31,6 +35,12 @@
         </header>
         <main class="conteudo">
             <h1 class="titulo">Avaliações</h1>
+            <?php
+            while($comentario = mysqli_fetch_assoc($comentarios)){
+                echo $comentario['texto'];
+            }
+            ?>
         </main>
     </body>
+    <script src="script/menu.js"></script>
 </html>

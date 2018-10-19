@@ -1,4 +1,8 @@
+.endereco_desc{
+    text-indent: 1rem;
+}
 .avaliar_oficina{
+    margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
     @extend %centralizar;
@@ -6,7 +10,6 @@
     align-items: flex-start;
 }
 .map_caixa{
-    margin-top: 3rem;
     position: relative;
     width: 100%;
     @media(min-width: 500px){
@@ -45,7 +48,6 @@
     border: 1px solid #bbb;
     box-shadow: 1px 1px #ccc;
     background-color: white;
-    margin-top: 3rem;
     border-top-right-radius: .5rem;
     border-top-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
@@ -73,15 +75,15 @@
     
     h1{
         font-size: 1.2rem;
-        color: #666;
+        color: #444;
         text-align: left;
-        margin-top: 0.8rem;
         width: 100%;
+        margin-bottom: 0.6rem
     }
     
     .botao_enviar{
         @include fonte(1rem, white, bold);
-        background: linear-gradient(lighten($cor-offgrid, 10), $cor-offgrid);
+        background: linear-gradient(lighten($cor-offgrid, 15), lighten($cor-offgrid, 5));
         border: 0;
         border-radius: 0.3rem;
         box-shadow: 1px 1px #ccc;
@@ -91,7 +93,7 @@
         padding: 0.5rem 0.8rem;
         cursor: pointer;
         &:hover{
-            background: linear-gradient(lighten($cor-offgrid, 15), lighten($cor-offgrid, 5));
+            background: linear-gradient(lighten($cor-offgrid, 10), $cor-offgrid);
         }
     }
 }
@@ -104,12 +106,15 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    h1{
+        text-align: center;
+        font-size: 1.1rem;
+        color: #222;
+        width: 100%;
+    }
     
     @media(min-width: 1000px){
         width: 50%;
-        h1{
-            text-indent: 1rem;
-        }
     }
     .rating {
         display: inline-block;
