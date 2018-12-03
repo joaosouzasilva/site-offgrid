@@ -51,33 +51,33 @@
                         <div class="rating">
                             <label>
                                 <input type="radio" name="nota" value="1" />
-                                <span class="icon">★</span>
+                                <span class="icon fa fa-star"></span>
                             </label>
                             <label>
                                 <input type="radio" name="nota" value="2" />
-                                <span class="icon">★</span>
-                                <span class="icon">★</span>
+                                <span class="icon fa fa-star"></span>
+                                <span class="icon fa fa-star"></span>
                             </label>
                             <label>
                                 <input type="radio" name="nota" value="3" />
-                                <span class="icon">★</span>
-                                <span class="icon">★</span>
-                                <span class="icon">★</span>   
+                                <span class="icon fa fa-star"></span>
+                                <span class="icon fa fa-star"></span>
+                                <span class="icon fa fa-star"></span>   
                             </label>
                             <label>
                                 <input type="radio" name="nota" value="4" />
-                                <span class="icon">★</span>
-                                <span class="icon">★</span>
-                                <span class="icon">★</span>
-                                <span class="icon">★</span>
+                                <span class="icon fa fa-star"></span>
+                                <span class="icon fa fa-star"></span>
+                                <span class="icon fa fa-star"></span>
+                                <span class="icon fa fa-star"></span>
                             </label>
                             <label>
                                 <input type="radio" name="nota" value="5" />
-                                <span class="icon">★</span>
-                                <span class="icon">★</span>
-                                <span class="icon">★</span>
-                                <span class="icon">★</span>
-                                <span class="icon">★</span>
+                                <span class="icon fa fa-star"></span>
+                                <span class="icon fa fa-star"></span>
+                                <span class="icon fa fa-star"></span>
+                                <span class="icon fa fa-star"></span>
+                                <span class="icon fa fa-star"></span>
                             </label>
                         </div>
                     </section>
