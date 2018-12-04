@@ -56,3 +56,7 @@ function NPS($conexao, $id, $total){
 function media($conexao, $id){
     
 }
+function adicionaMecanico($nome, $bairro, $logradouro, $numero){
+    $query = "insert into mecanicos (nome_oficina, estado_oficina, cidade_oficina, bairro_oficina, endereco_oficina, numero_endereco) values ('{$nome_oficina}', '{$estado_oficina}', '{$cidade_oficina}', '{$bairro_oficina}', '{$endereco_oficina}', '{$numero_endereco}')";
+    return mysqli_query($conexao, $query);
+}

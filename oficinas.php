@@ -92,7 +92,7 @@
                     </section>
                     <button type="submit" class="botao_enviar" value="????" name="mecanico_id">Enviar</button>
                 </form>
-                <form class="formulario_avaliacao" action="avaliacao-enviada.php" method="post">
+                <form class="formulario" action="nova-oficina.php" method="post">
                     <h1>Nova oficina</h1>
                     <section class="avaliacao_texto">
                         <input type="text" name="nova_oficina" placeholder="Nome">
@@ -100,7 +100,7 @@
                     </section>
                     <button type="submit" class="botao_enviar" value="????" name="mecanico_id">Enviar</button>
                 </form>
-                <form class="formulario_avaliacao" action="avaliacao-enviada.php" method="post">
+                <form class="formulario" action="agendamento-feito.php" method="post">
                     <h1>Agendar serviço</h1>
                     <section class="avaliacao_texto">
                         <textarea rows="7" maxlength="255" class="campo_texto" name="mensagem" placeholder="Mensagem"></textarea>
