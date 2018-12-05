@@ -45,7 +45,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.conteudo, .formularios_lista, .formulario .botao_enviar, .oficina_lista, .avaliar_oficina, .formulario_avaliacao .botao_enviar, .de_sua_nota .rating {
+.conteudo, .botao_enviar, .oficina_lista, .avaliar_oficina, .formulario_avaliacao .botao_enviar, .de_sua_nota .rating {
   margin-left: auto;
   margin-right: auto; }
 
@@ -141,15 +141,7 @@ a {
   .cabecalho .responsivo {
     display: block; }
 
-@media (min-width: 500px) {
-  .formularios_lista {
-    width: 75%; } }
-@media (min-width: 1000px) {
-  .formularios_lista {
-    width: 50%; } }
-
 .formulario {
-  width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
@@ -193,20 +185,22 @@ a {
     color: #444;
     text-align: left;
     width: 100%; }
-  .formulario .botao_enviar {
-    font-size: 1rem;
-    color: white;
-    font-weight: bold;
-    background: linear-gradient(#ca770d, #9a5b0a);
-    border: 0;
-    border-radius: 0.3rem;
-    box-shadow: 1px 1px #ccc;
-    display: block;
-    margin-top: 1rem;
-    padding: 0.5rem 0.8rem;
-    cursor: pointer; }
-    .formulario .botao_enviar:hover {
-      background: linear-gradient(#e2850f, #b2690c); }
+
+.botao_enviar {
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+  background: linear-gradient(#ca770d, #9a5b0a);
+  border: 0;
+  border-radius: 0.3rem;
+  box-shadow: 1px 1px #ccc;
+  display: block;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer; }
+  .botao_enviar:hover {
+    background: linear-gradient(#e2850f, #b2690c); }
+  .botao_enviar a {
+    color: white; }
 
 .senha_valida {
   display: none; }
@@ -218,9 +212,10 @@ a {
   font-size: .77rem; }
 
 .pagina_login {
-  display: flex;
-  flex-wrap: wrap; }
+  display: grid;
+  grid-template-areas: "sobre mecanico" "cliente mecanico"; }
   .pagina_login .sobre {
+    grid-area: sobre;
     width: 100%;
     box-sizing: border-box;
     padding: 2.5rem; }
@@ -228,10 +223,10 @@ a {
       font-size: 1.35rem;
       color: #3a2204;
       font-weight: bold; }
-    @media (min-width: 1000px) {
-      .pagina_login .sobre {
-        width: 50%;
-        margin-top: 1rem; } }
+  .pagina_login .formularios_mecanico {
+    grid-area: mecanico; }
+  .pagina_login .formularios_cliente {
+    grid-area: cliente; }
 
 .rodape {
   margin-top: 8rem;
@@ -257,12 +252,6 @@ a {
   width: 45%;
   background-color: black; }
 
-.titulo_lo {
-  text-align: center;
-  font-size: 1.77rem;
-  color: #9a5b0a;
-  font-weight: bold; }
-
 .oficina_lista {
   margin-top: 3rem;
   display: flex;
@@ -283,17 +272,17 @@ a {
   background-color: #9a5b0a; }
   .oficina_item a {
     width: 100%;
-    font-size: 1.62rem;
+    font-size: 1.25rem;
     color: white; }
   .oficina_item h2 {
-    margin-left: 1rem;
+    font-size: 1rem;
+    margin-left: 0.2rem;
     color: #f5f5ee; }
 
 .endereco_desc {
   text-indent: 1rem; }
 
 .avaliar_oficina {
-  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

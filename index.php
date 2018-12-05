@@ -32,7 +32,7 @@
                 <section class="sobre">
                     <p>A OffGrid é o site que une oficinas mecânicas e clientes, oferecendo informações e avaliações dos serviços para que o cliente escolha melhor onde consertar o seu veículo, o mecânico alcance mais clientes e ambos possam interagir de forma prática e segura.</p>
                 </section>
-                <section class="formularios_lista">
+                <section class="formularios_mecanico">
                     <form class="formulario" action="cm-concluido.php" method="post" accept-charset="utf-8">
                         <h1>Cadastre sua oficina</h1>
                         <input class="campo_texto campo_grande" name="nome_oficina" placeholder="Nome da oficina *" required>
@@ -92,6 +92,33 @@
                         if(isset($_SESSION["logout_sucesso_m"])){ ?>
                             <p class="senha_invalida"><?=$_SESSION["logout_sucesso_m"]?></p>
                         <?php } unset($_SESSION["logout_sucesso_m"])
+                        ?>
+                    </form>
+                </section>
+                <section class=".formularios_cliente">
+                    <form class="formulario" action="cc-concluido.php" method="post" accept-charset="utf-8">
+                        <h1>Insira seus dados</h1>
+                        <input class="campo_texto" name="nome_cliente" placeholder="Nome completo *" required>
+                        <input class="campo_texto" name="email_cliente" placeholder="Email *" required>
+                        <input class="campo_texto" id="senhajs" name="senha_cliente" placeholder="Crie uma senha *" required>
+                        <input class="campo_texto" id="senhajs_2" name="senha_cliente_2" placeholder="Confirmar senha" required>
+                        <p class="senha_valida" id="valida_senha">Senhas não conferem</p>
+                        <button type="submit" class="botao_enviar" required>Enviar</button>
+                    </form>
+                    <form class="formulario" action="lm-concluido.php" method="post">
+                        <h1>Fazer login</h1>
+                        <input class="campo_texto" name="email_mecanico" placeholder="Email" required>
+                        <input class="campo_texto" name="senha_mecanico" placeholder="Senha" required type="password">
+                        <button type="submit" class="botao_enviar">Login</button>
+                        <?php
+                        if(isset($_SESSION["deslogado_c"])){ ?>
+                            <p class="senha_invalida"><?=$_SESSION["deslogado_c"]?></p>
+                        <?php } unset($_SESSION["deslogado_c"])
+                        ?>
+                        <?php
+                        if(isset($_SESSION["logout_sucesso_c"])){ ?>
+                            <p class="senha_invalida"><?=$_SESSION["logout_sucesso_c"]?></p>
+                        <?php } unset($_SESSION["logout_sucesso_c"])
                         ?>
                     </form>
                 </section>

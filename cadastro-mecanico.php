@@ -29,11 +29,8 @@
             <h1 class="titulo">Criar conta - Mecânico</h1>
             <section class="formularios_lista">
                 <form class="formulario" action="cm-concluido.php" method="post" accept-charset="utf-8">
-                    <h1>Dados da oficina</h1>
+                    <h1>Cadastre sua oficina</h1>
                     <input class="campo_texto campo_grande" name="nome_oficina" placeholder="Nome da oficina *" required>
-                    <input class="campo_texto" name="telefone_oficina" placeholder="Telefone" type="tel" required>
-                    <input class="campo_texto" name="cnpj" placeholder="CNPJ" required>
-                    <h1>Endereço da oficina</h1>
                     <input class="campo_texto" name="cep_oficina" placeholder="CEP" type="number" required>
                     <select class="campo_texto" id="estado_oficina" name="estado_oficina" placeholder="Estado" required>
                         <option value="AC" >Acre</option>
@@ -69,10 +66,8 @@
                     <input class="campo_texto campo_grande" name="endereco_oficina" placeholder="Endereço" required>
                     <input class="campo_texto" name="numero_endereco" placeholder="Número" type="number">
                     <input class="campo_texto" name="complemento" placeholder="Complemento">
-                    <h1>Representante Legal</h1>
-                    <input class="campo_texto campo_grande" name="nome_mecanico" placeholder="Nome completo *" required>
                     <input class="campo_texto" name="email_mecanico" placeholder="Email *" type="email" required>
-                    <input class="campo_texto" name="celular_mecanico" placeholder="Celular do responsável" type="tel">
+                    <input class="campo_texto" name="telefone_oficina" placeholder="Telefone" type="tel" required>
                     <input class="campo_texto" id="senhajs" name="senha_mecanico" placeholder="Crie uma senha *" type="password" required>
                     <input class="campo_texto" id="senhajs_2" name="senha_mecanico_2" placeholder="Confirmar senha *" type="password" required>
                     <p class="senha_valida" id="valida_senha">Senhas não conferem</p>

@@ -1,17 +1,6 @@
-//Todos os formulários, até agora, foram escritos com dentro de uma section com esta classe.
-.formularios_lista{
-    @extend %centralizar;
-    @media(min-width: 500px){
-        width: 75%;
-    }
-    @media(min-width: 1000px){
-        width: 50%;
-    }
-}
 
 //Formulários um abaixo do outro ficam com bordas arredondadas só no topo do primeiro e embaixo do último.
 .formulario {
-    width: 100%;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
@@ -65,23 +54,26 @@
         text-align: left;
         width: 100%;
     }
-    
-    .botao_enviar{
-        @include fonte(1rem, white, bold);
-        background: linear-gradient(lighten($cor-offgrid, 10), $cor-offgrid);
-        border: 0;
-        border-radius: 0.3rem;
-        box-shadow: 1px 1px #ccc;
-        @extend %centralizar;
-        display: block;
-        margin-top: 1rem;
-        padding: 0.5rem 0.8rem;
-        cursor: pointer;
-        &:hover{
-            background: linear-gradient(lighten($cor-offgrid, 15), lighten($cor-offgrid, 5));
-        }
+}
+;
+.botao_enviar{
+    @include fonte(1rem, white, bold);
+    background: linear-gradient(lighten($cor-offgrid, 10), $cor-offgrid);
+    border: 0;
+    border-radius: 0.3rem;
+    box-shadow: 1px 1px #ccc;
+    @extend %centralizar;
+    display: block;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    &:hover{
+        background: linear-gradient(lighten($cor-offgrid, 15), lighten($cor-offgrid, 5));
+    }
+    a{
+        color: white;
     }
 }
+
 //As próximas duas classes são colocadas por javascript quando as senhas não são iguais nos formulários de inscrição.
 .senha_valida{
     display: none;
@@ -94,21 +86,25 @@
     font-size: .77rem;
 }
 
-//Usada na página de login, para a sessão sobre ficar do lado do formulário.
+//Usada na página inicial, para a sessão sobre ficar do lado do formulário.
 .pagina_login{
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-areas: 
+        "sobre mecanico"
+        "cliente mecanico";
     .sobre{
+        grid-area: sobre;
         width: 100%;
         box-sizing: border-box;
         padding: 2.5rem;
         p{
             @include fonte(1.35rem, darken($cor-offgrid, 20), bold);
         }
-        @media(min-width: 1000px){
-            width: 50%;
-            margin-top: 1rem;
-        }
+    }
+    .formularios_mecanico{
+        grid-area: mecanico;
+    }
+    .formularios_cliente{
+        grid-area: cliente;
     }
 }
-

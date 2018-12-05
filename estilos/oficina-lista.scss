@@ -1,8 +1,3 @@
-.titulo_lo{
-    text-align: center;
-    @include fonte(1.77rem, $cor-offgrid, bold);
-}
-
 .oficina_lista{
     @extend %centralizar;
     margin-top: 3rem;
@@ -21,11 +16,12 @@
     flex-wrap: wrap;
     a{
         width: 100%;
-        font-size: 1.62rem;
+        font-size: 1.25rem;
         color: white;
     }
     h2{
-        margin-left: 1rem;
+        font-size: 1rem;
+        margin-left: 0.2rem;
         color: #f5f5ee;
     }
     padding: 1rem;
