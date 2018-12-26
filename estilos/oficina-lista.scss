@@ -13,7 +13,7 @@
 }
 .oficina_item{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     a{
         width: 100%;
         font-size: 1.25rem;
@@ -23,6 +23,14 @@
         font-size: 1rem;
         margin-left: 0.2rem;
         color: #f5f5ee;
+    }
+    .nota{
+        font-size: 1.6rem;
+        margin-left: 0.5rem;
+        .estrela{
+            color: gold;
+            margin-right: 0.2rem;
+        }
     }
     padding: 1rem;
     box-sizing: border-box;

@@ -1,4 +1,4 @@
-var oficinas = document.querySelectorAll(".oficina_item");
+/*var oficinas = document.querySelectorAll(".oficina_item");
 console.log(oficinas);
 oficinas.forEach(function(oficina) {
     oficina.addEventListener("click", function(event){
@@ -6,7 +6,7 @@ oficinas.forEach(function(oficina) {
         address = this.querySelector(".endereco_js").innerHTML;
         initMap(address);
     });
-});
+});*/
 
 function initMap(address) {
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -20,7 +20,7 @@ function initMap(address) {
 }
 
 function geocodeAddress(geocoder, resultsMap, address) {
-    //var address = document.querySelector(".endereco_desc").innerHTML;
+    var address = document.querySelector(".endereco_desc").innerHTML;
     console.log(address);
     geocoder.geocode({'address': address}, function(results, status) {
         if (status === 'OK') {

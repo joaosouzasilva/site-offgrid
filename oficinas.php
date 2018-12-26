@@ -1,24 +1,24 @@
+<?php
+require_once("banco-usuario.php");
+$query = "select * from mecanicos";
+$total_reg = "20";
+$pagina=$_GET['pagina'];
+if (!$pagina) {
+$pc = "1";
+} else {
+$pc = $pagina;
+}
+$inicio = $pc - 1;
+$inicio = $inicio * $total_reg;
+$limite = mysqli_query($conexao, "$query LIMIT $inicio, $total_reg");
+$todos = mysqli_query($conexao, $query);
+$tr = mysqli_num_rows($todos);
+$tp = $tr / $total_reg;
+$anterior = $pc -1;
+$proximo = $pc +1;
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <?php
-    require_once("banco-usuario.php");
-    $query = "select * from mecanicos";
-    $total_reg = "20";
-    $pagina=$_GET['pagina'];
-    if (!$pagina) {
-    $pc = "1";
-    } else {
-    $pc = $pagina;
-    }
-    $inicio = $pc - 1;
-    $inicio = $inicio * $total_reg;
-    $limite = mysqli_query($conexao, "$query LIMIT $inicio, $total_reg");
-    $todos = mysqli_query($conexao, $query);
-    $tr = mysqli_num_rows($todos);
-    $tp = $tr / $total_reg;
-    $anterior = $pc -1;
-    $proximo = $pc +1;
-    ?>
     <head>
         <title>Lista de oficinas - OffGrid</title>
         <meta charset="utf-8">
@@ -49,9 +49,10 @@
             <section class="avaliar_oficina">
                 <form class="formulario" action="nova-oficina.php" method="post">
                     <h1>Nova oficina</h1>
-                        <input class="campo_texto" name="nome" placeholder="Nome">
-                        <input class="campo_texto" name="bairro" placeholder="Bairro">
-                        <input class="campo_texto" name="endereco" placeholder="Endereço">
+                        <input class="campo_texto" name="nome" placeholder="Nome" required>
+                        <input class="campo_texto" name="bairro" placeholder="Bairro" required>
+                        <input class="campo_texto" name="logradouro" placeholder="Endereço" required>
+                        <input class="campo_texto" name="numero" placeholder="Número">
                     <button type="submit" class="botao_enviar">Enviar</button>
                 </form>
             </section>
@@ -60,13 +61,23 @@
                 while($oficinas = mysqli_fetch_assoc($limite)){?>
                 <div class="oficina_item">
                     <a href="avaliar?of=<?= $oficinas['id']; ?>"><?= $oficinas['nome_oficina']; ?></a>
-                    <h2 class="endereco_js">Endereço: <?= $oficinas["endereco_oficina"];?>, <?= $oficinas["numero_endereco"];?> - <?= $oficinas["bairro_oficina"];?></h2>
-                    <div>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star-half checked"></span>
+                    <h2>Endereço: <?= $oficinas["endereco_oficina"];?>, <?= $oficinas["numero_endereco"];?> - <?= $oficinas["bairro_oficina"];?></h2>
+                    <div class="nota">
+                        <?php
+                        $media_linha = media($conexao, $oficinas['id']);
+                        $media = $media_linha['avg(nota)'];
+                        if($media > 0.75){?> <span class="estrela fa fa-star"></span>
+                        <?php }
+                        if($media > 1.75){?> <span class="estrela fa fa-star"></span>
+                        <?php }
+                        if($media > 2.75){?> <span class="estrela fa fa-star"></span>
+                        <?php }
+                        if($media > 3.75){?> <span class="estrela fa fa-star"></span>
+                        <?php }
+                        if($media > 4.75){?> <span class="estrela fa fa-star"></span>
+                        <?php } 
+                        if($media > 0.25 && $media <= 0.75 || $media > 1.25 && $media <= 1.75 || $media > 2.25 && $media <= 2.75 || $media > 3.25 && $media <= 3.75 || $media > 4.25 && $media <= 4.75){?> <span class="estrela fa fa-star-half"></span>
+                        <?php } ?>
                     </div>
                 </div><?php } ?>
                 <?php 

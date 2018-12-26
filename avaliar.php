@@ -1,14 +1,17 @@
+<?php
+require_once("logica-login.php");
+verificaLoginC();
+require_once("banco-usuario.php");
+$cliente = buscaUsuarioCC($conexao, $_SESSION["cliente_logado"]);
+$id = $_GET["of"];
+$id = mysqli_real_escape_string($conexao, $id);
+$query = "select * from mecanicos where id = '{$id}'";
+$resultado = mysqli_query($conexao, $query);
+$mecanico = mysqli_fetch_assoc($resultado);
+$endereco = $mecanico["endereco_oficina"];
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <?php
-    require_once("banco-usuario.php");
-    $id = $_GET["of"];
-    $id = mysqli_real_escape_string($conexao, $id);
-    $query = "select * from mecanicos where id = '{$id}'";
-    $resultado = mysqli_query($conexao, $query);
-    $mecanico = mysqli_fetch_assoc($resultado);
-    $endereco = $mecanico["endereco_oficina"];
-    ?>
     <head>
         <title><?= $mecanico["nome_oficina"]; ?> - OffGrid</title>
         <meta charset="utf-8">
@@ -28,7 +31,7 @@
             <nav class="painel_nav">
                 <ul>
                     <li><a href="https://offgridoficinas.wixsite.com/website">INÍCIO</a></li>
-                    <li><a>OFICINAS</a></li>
+                    <li><a href="oficinas">OFICINAS</a></li>
                     <li><a>OFERTAS</a></li>
                     <li><a>NOVIDADES</a></li>
                 </ul>
@@ -41,13 +44,25 @@
                 <div class="map_caixa">
                     <div id="map"></div>
                 </div>
-                <form class="formulario_avaliacao" action="avaliacao-enviada.php" method="post">
+                <?php if($cliente['agendado'] != $mecanico["id"]){ ?>
+                <form class="formulario" action="agendamento-feito.php" method="post">
+                    <h1>Agendar serviço</h1>
+                    <textarea rows="7" maxlength="255" name="mensagem" class="campo_texto campo_grande" placeholder="Escreva uma mensagem para o mecânico."></textarea>
+                    <button type="submit" class="botao_enviar" value="<?= $mecanico["id"]; ?>" name="mecanico_id">Enviar</button>
+                    <?php
+                    if(isset($_SESSION["avaliacao_enviada"])){ ?>
+                        <p class="senha_invalida"><?=$_SESSION["avaliacao_enviada"]?></p>
+                    <?php } unset($_SESSION["avaliacao_enviada"])
+                    ?>
+                </form>
+                <?php } else{?>
+                <form class="formulario" action="avaliacao-enviada.php" method="post">
                     <h1>Avalie esta oficina</h1>
                     <section class="avaliacao_texto">
                         <textarea rows="7" maxlength="255" class="campo_texto" name="texto" placeholder="Comentário"></textarea>
                     </section>
                     <section class="de_sua_nota">
-                        <h1>Dê sua nota</h1>
+                        <h1>Quando o serviço estiver pronto, dê sua nota</h1>
                         <div class="rating">
                             <label>
                                 <input type="radio" name="nota" value="1" />
@@ -82,7 +97,13 @@
                         </div>
                     </section>
                     <button type="submit" class="botao_enviar" value="<?= $mecanico["id"]; ?>" name="mecanico_id">Enviar</button>
+                    <?php
+                    if(isset($_SESSION["agendado"])){ ?>
+                        <p class="senha_invalida"><?=$_SESSION["agendado"]?></p>
+                    <?php } unset($_SESSION["agendado"])
+                    ?>
                 </form>
+            <?php } ?>
             </section>
             
         </main>

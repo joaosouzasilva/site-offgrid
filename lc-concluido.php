@@ -7,6 +7,6 @@ if($cliente == null){
     header("Location: index");
 }else{
     logaC($cliente["email_cliente"]);
-    header("Location: avaliar");
+    header("Location: oficinas");
 }
 die();

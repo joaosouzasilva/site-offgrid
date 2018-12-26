@@ -7,4 +7,10 @@ $bairro = $_POST["bairro"];
 $logradouro = $_POST["logradouro"];
 $numero = $_POST["numero"];
 
-adicionaMecanico($nome, $bairro, $logradouro, $numero);
+if(adicionaMecanico($conexao, $nome, $bairro, $logradouro, $numero)){
+	header("Location: oficinas");
+
+}
+else{
+	header("Location: oficinas");
+}

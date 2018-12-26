@@ -147,17 +147,8 @@ a {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
-  border: 1px solid #bbb;
-  box-shadow: 1px 1px #ccc;
+  padding: 1rem 1.6rem;
   background-color: white; }
-  .formulario:first-child {
-    margin-top: 3rem;
-    border-top-right-radius: .5rem;
-    border-top-left-radius: .5rem; }
-  .formulario:last-child {
-    border-bottom-right-radius: .5rem;
-    border-bottom-left-radius: .5rem; }
   .formulario .campo_texto {
     width: 100%;
     display: inline-block;
@@ -190,7 +181,7 @@ a {
   font-size: 1rem;
   color: white;
   font-weight: bold;
-  background: linear-gradient(#ca770d, #9a5b0a);
+  background: linear-gradient(#e2850f, #b2690c);
   border: 0;
   border-radius: 0.3rem;
   box-shadow: 1px 1px #ccc;
@@ -198,7 +189,7 @@ a {
   padding: 0.5rem 0.8rem;
   cursor: pointer; }
   .botao_enviar:hover {
-    background: linear-gradient(#e2850f, #b2690c); }
+    background: linear-gradient(#ca770d, #9a5b0a); }
   .botao_enviar a {
     color: white; }
 
@@ -211,22 +202,24 @@ a {
   color: #fc0400;
   font-size: .77rem; }
 
-.pagina_login {
-  display: grid;
-  grid-template-areas: "sobre mecanico" "cliente mecanico"; }
-  .pagina_login .sobre {
-    grid-area: sobre;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 2.5rem; }
-    .pagina_login .sobre p {
-      font-size: 1.35rem;
-      color: #3a2204;
-      font-weight: bold; }
-  .pagina_login .formularios_mecanico {
-    grid-area: mecanico; }
-  .pagina_login .formularios_cliente {
-    grid-area: cliente; }
+@media (min-width: 1000px) {
+  .pagina_login {
+    display: grid;
+    grid-template-areas: "sobre mecanico" "cliente mecanico";
+    grid-gap: 1rem; } }
+.pagina_login .sobre {
+  grid-area: sobre;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2.5rem; }
+  .pagina_login .sobre p {
+    font-size: 1.35rem;
+    color: #3a2204;
+    font-weight: bold; }
+.pagina_login .formularios_mecanico {
+  grid-area: mecanico; }
+.pagina_login .formularios_cliente {
+  grid-area: cliente; }
 
 .rodape {
   margin-top: 8rem;
@@ -265,7 +258,7 @@ a {
 
 .oficina_item {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   padding: 1rem;
   box-sizing: border-box;
   margin-bottom: 0.5rem;
@@ -278,6 +271,12 @@ a {
     font-size: 1rem;
     margin-left: 0.2rem;
     color: #f5f5ee; }
+  .oficina_item .nota {
+    font-size: 1.6rem;
+    margin-left: 0.5rem; }
+    .oficina_item .nota .estrela {
+      color: gold;
+      margin-right: 0.2rem; }
 
 .endereco_desc {
   text-indent: 1rem; }

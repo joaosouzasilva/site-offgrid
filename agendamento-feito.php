@@ -1,10 +1,13 @@
 <?php
+require_once("banco-usuario.php");
+require_once("logica-login.php");
 require_once("vendor/autoload.php");
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 $mensagem = $_POST["mensagem"];
+$mecanico = $_POST["mecanico_id"];
 
 $mail = new PHPMailer();
 try{
@@ -25,8 +28,12 @@ try{
 	$mail->AltBody = "{$mensagem}";
 
 	$mail->send();
-    echo 'Mensagem foi enviada';
+
+	$query = "update clientes set agendado = '{$mecanico}' where email_cliente = '{$_SESSION["cliente_logado"]}'";
+    mysqli_query($conexao, $query);
+    $_SESSION["agendado"] = "Mensagem enviada.";
+    header("Location: avaliar?of={$mecanico}");
 }
 catch(Exception $e){
-	echo "Mensagem não foi enviada: ", $mail->ErrorInfo;
+	header("Location: avaliar?of={$mecanico}");
 }

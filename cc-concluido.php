@@ -11,12 +11,13 @@ if($cliente == null)
 
     if(cadastraC($conexao, $email_cliente, $senha_cliente, $nome_cliente)){
         logaC($cliente["email_cliente"]);
-        header("Location: avaliar");
+        header("Location: oficinas");
     }else{
         header("Location: index");
     }
     die();
 }else{
-    header("Location: cadastro-cliente");
+    $_SESSION["ja_cadastrado_C"] = "Você já está cadastrado.";
+    header("Location: index");
     die();
 }

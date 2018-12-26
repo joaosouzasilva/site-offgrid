@@ -1,14 +1,14 @@
+<?php
+require_once("logica-login.php");
+verificaLoginM();
+require_once("banco-usuario.php");
+$mecanico = buscaUsuarioMC($conexao, $_SESSION["mecanico_logado"]);
+$query = "select * from comentarios where mecanico_id = '{$mecanico['id']}'";
+$comentarios = mysqli_query($conexao, $query);
+$nps = NPS($conexao, $mecanico['id'], mysqli_num_rows($comentarios));
+?>
 <!DOCTYPE html>
 <html>
-    <?php
-    require_once("logica-login.php");
-    verificaLoginM();
-    require_once("banco-usuario.php");
-    $mecanico = buscaUsuarioMC($conexao, $_SESSION["mecanico_logado"]);
-    $query = "select * from comentarios where mecanico_id = '{$mecanico['id']}'";
-    $comentarios = mysqli_query($conexao, $query);
-    $nps = NPS($conexao, $mecanico['id'], mysqli_num_rows($comentarios));
-    ?>
     <head>
         <title>Avaliações - OffGrid</title>
         <meta charset="utf-8">
