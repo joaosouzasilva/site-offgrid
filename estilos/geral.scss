@@ -7,16 +7,10 @@ body{
     line-height: 1.5;
     background-color: #fcfcfc;
 }
-.conteudo{
-    margin-top: 5rem;
-    width: 85%;
-    @extend %centralizar;
-
-    .titulo{
+.titulo{
         @include fonte(1.62rem, $cor-offgrid, bold);
         text-align: center;
     }
-}
 a {
     text-decoration: none;
 }

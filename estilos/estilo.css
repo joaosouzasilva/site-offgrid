@@ -45,7 +45,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.conteudo, .botao_enviar, .oficina_lista, .avaliar_oficina, .formulario_avaliacao .botao_enviar, .de_sua_nota .rating {
+.botao_enviar, .pagina_login .above_the_fold p, .pagina_login .formularios_cliente, .pagina_login .formularios_mecanico, .oficina_lista, .avaliar_oficina, .formulario_avaliacao .botao_enviar, .de_sua_nota .rating {
   margin-left: auto;
   margin-right: auto; }
 
@@ -57,14 +57,11 @@ body {
   line-height: 1.5;
   background-color: #fcfcfc; }
 
-.conteudo {
-  margin-top: 5rem;
-  width: 85%; }
-  .conteudo .titulo {
-    font-size: 1.62rem;
-    color: #9a5b0a;
-    font-weight: bold;
-    text-align: center; }
+.titulo {
+  font-size: 1.62rem;
+  color: #9a5b0a;
+  font-weight: bold;
+  text-align: center; }
 
 a {
   text-decoration: none; }
@@ -147,8 +144,7 @@ a {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.6rem;
-  background-color: white; }
+  padding: 1rem 1.6rem; }
   .formulario .campo_texto {
     width: 100%;
     display: inline-block;
@@ -173,7 +169,7 @@ a {
       width: 100%; } }
   .formulario h1 {
     font-size: 1.2rem;
-    color: #444;
+    color: white;
     text-align: left;
     width: 100%; }
 
@@ -205,21 +201,28 @@ a {
 @media (min-width: 1000px) {
   .pagina_login {
     display: grid;
-    grid-template-areas: "sobre mecanico" "cliente mecanico";
+    grid-template-areas: "sobre sobre" "mecanico cliente";
     grid-gap: 1rem; } }
-.pagina_login .sobre {
+.pagina_login .above_the_fold {
   grid-area: sobre;
   width: 100%;
   box-sizing: border-box;
-  padding: 2.5rem; }
-  .pagina_login .sobre p {
-    font-size: 1.35rem;
-    color: #3a2204;
-    font-weight: bold; }
-.pagina_login .formularios_mecanico {
-  grid-area: mecanico; }
+  background-image: url("../imagens/fundo.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .pagina_login .above_the_fold p {
+    font-size: 1.25rem;
+    color: white;
+    text-align: justify;
+    width: 85%;
+    margin-top: 1rem; }
 .pagina_login .formularios_cliente {
-  grid-area: cliente; }
+  grid-area: cliente;
+  width: 85%; }
+.pagina_login .formularios_mecanico {
+  grid-area: mecanico;
+  width: 85%; }
 
 .rodape {
   margin-top: 8rem;

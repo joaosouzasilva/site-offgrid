@@ -7,7 +7,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1.6rem;
-    background-color: white;
     .campo_texto{
         width: 100%;
         display: inline-block;
@@ -39,7 +38,7 @@
     
     h1{
         font-size: 1.2rem;
-        color: #444;
+        color: white;
         text-align: left;
         width: 100%;
     }
@@ -80,23 +79,36 @@
     @media(min-width: 1000px){
         display: grid;
         grid-template-areas: 
-            "sobre mecanico"
-            "cliente mecanico";
+            "sobre sobre"
+            "mecanico cliente";
         grid-gap: 1rem;
     }
-    .sobre{
+    .above_the_fold{
         grid-area: sobre;
         width: 100%;
         box-sizing: border-box;
-        padding: 2.5rem;
         p{
-            @include fonte(1.35rem, darken($cor-offgrid, 20), bold);
+            //@include fonte(1.35rem, darken($cor-offgrid, 20), bold);
+            @include fonte(1.25rem, white);
+            text-align: justify;
+            width: 85%;
+            @extend %centralizar;
+            margin-top: 1rem;
         }
+        background-image: url("../imagens/fundo.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+        .formularios_cliente{
+        grid-area: cliente;
+        width: 85%;
+        @extend %centralizar;
     }
     .formularios_mecanico{
         grid-area: mecanico;
+        width: 85%;
+        @extend %centralizar;
     }
-    .formularios_cliente{
-        grid-area: cliente;
-    }
+
 }
