@@ -251,13 +251,14 @@ a {
 .oficina_lista {
   margin-top: 3rem;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  width: 85%; }
   @media (min-width: 500px) {
     .oficina_lista {
-      width: 75%; } }
+      width: 64%; } }
   @media (min-width: 1000px) {
     .oficina_lista {
-      width: 50%; } }
+      width: 43%; } }
 
 .oficina_item {
   display: flex;

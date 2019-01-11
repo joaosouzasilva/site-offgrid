@@ -3,12 +3,13 @@
     margin-top: 3rem;
     display: flex;
     flex-direction: column;
+    width: 85%;
     
     @media(min-width: 500px){
-        width: 75%;
+        width: 64%;
     }
     @media(min-width: 1000px){
-        width: 50%;
+        width: 43%;
     }
 }
 .oficina_item{

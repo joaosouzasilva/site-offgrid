@@ -16,6 +16,12 @@ function buscaUsuarioC($conexao, $email, $senha){
     $usuario = mysqli_fetch_assoc($resultado);
     return $usuario;
 }
+function buscaUsuarioPorID($conexao, $id){
+    $query = "select * from clientes where id = '{$id}";
+    $resultado = mysqli_query($conexao, $query);
+    $usuario = mysqli_fetch_assoc($resultado);
+    return $usuario;
+}
 function buscaUsuarioMC($conexao, $email){
     $email = mysqli_real_escape_string($conexao, $email);
     $query = "select * from mecanicos where email_mecanico = '{$email}'";
