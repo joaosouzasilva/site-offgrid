@@ -1,6 +1,6 @@
 <?php
 require_once("banco-usuario.php");
-$query = "select * from mecanicos";
+$query_todos = "select * from mecanicos";
 $total_reg = "20";
 $pagina=$_GET['pagina'];
 if (!$pagina) {
@@ -10,12 +10,39 @@ $pc = $pagina;
 }
 $inicio = $pc - 1;
 $inicio = $inicio * $total_reg;
-$limite = mysqli_query($conexao, "$query LIMIT $inicio, $total_reg");
-$todos = mysqli_query($conexao, $query);
+$todos = mysqli_query($conexao, $query_todos);
+$limite = mysqli_query($conexao, "$query_todos LIMIT $inicio, $total_reg");
 $tr = mysqli_num_rows($todos);
 $tp = $tr / $total_reg;
 $anterior = $pc -1;
 $proximo = $pc +1;
+
+$query_join = "select mecanicos.id, comentarios.nota from mecanicos left join comentarios on mecanicos.id = comentarios.mecanico_id";
+$join = mysqli_query($conexao, $query_join);
+$i = 0;
+while ($comentarios = mysqli_fetch_assoc($join)) {
+    $vetor_mecanicos_join[$i] = $comentarios['id'];
+    $vetor_notas[$i] = $comentarios['nota'];
+    $i++;
+}
+$n = 0;
+$j = 0;
+$vetor_mecanicos[$j] = $vetor_mecanicos_join[0];
+for($i = 0; $i < count($vetor_mecanicos_join); $i++){
+    if(!isset($vetor_medias[$j])){
+        $vetor_medias[$j] = 0;
+    }
+    $vetor_medias[$j] += $vetor_notas[$i];
+    $n++;
+    if(($vetor_mecanicos_join[$i] != $vetor_mecanicos_join[$i+1]) && ($i+1 != count($vetor_mecanicos_join))){
+        $vetor_medias[$j] /= $n;
+        $n = 0;
+        $j++;
+        $vetor_mecanicos[$j] = $vetor_mecanicos_join[$i+1];
+        $vetor_medias[$j] = 0;
+    }
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -58,14 +85,14 @@ $proximo = $pc +1;
             </section>
             <section class="oficina_lista">
                 <?php
-                while($oficinas = mysqli_fetch_assoc($limite)){?>
+                for($j = $inicio; $j < ($inicio + $total_reg) && $j < count($vetor_mecanicos); $j++){
+                    $oficinas = buscaMecanicoPorID($conexao, $vetor_mecanicos[$j]); ?>
                 <div class="oficina_item">
                     <a href="avaliar?of=<?= $oficinas['id']; ?>"><?= $oficinas['nome_oficina']; ?></a>
                     <h2>Endereço: <?= $oficinas["endereco_oficina"];?>, <?= $oficinas["numero_endereco"];?> - <?= $oficinas["bairro_oficina"];?></h2>
                     <div class="nota">
                         <?php
-                        $media_linha = media($conexao, $oficinas['id']);
-                        $media = $media_linha['avg(nota)'];
+                        $media = $vetor_medias[$j];
                         if($media > 0.75){?> <span class="estrela fa fa-star"></span>
                         <?php }
                         if($media > 1.75){?> <span class="estrela fa fa-star"></span>
