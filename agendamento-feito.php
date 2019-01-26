@@ -35,5 +35,5 @@ try{
     header("Location: avaliar?of={$mecanico}");
 }
 catch(Exception $e){
-	header("Location: avaliar?of={$mecanico}");
+	header("Location: agendar?of={$mecanico}");
 }

@@ -10,28 +10,20 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     </head>
     <body>
+        <header class="cabecalho">
+            <img class="logo" src="imagens/logo.jpg" alt="Logo da OffGrid">
+            <a href="#" class="logar">
+                <img class="user_icon" src="imagens/usericon.png">
+                Sair
+            </a>
+            </nav>
+        </header>
         <main class="conteudo pagina_login">
-            <section class="above_the_fold">
-                <header class="cabecalho">
-                    <a href="#" class="hamburger">&#9776;</a>
-                    <img class="logo" src="imagens/logo.jpg" alt="Logo da OffGrid">
-                    <a href="#" class="logar">
-                        <img class="user_icon" src="imagens/usericon.png">
-                        Sair
-                    </a>
-                    <nav class="painel_nav">
-                        <ul>
-                            <li><a href="https://offgridoficinas.wixsite.com/website">INÍCIO</a></li>
-                            <li><a href="oficinas">OFICINAS</a></li>
-                            <li><a>OFERTAS</a></li>
-                            <li><a>NOVIDADES</a></li>
-                        </ul>
-                    </nav>
-                </header>
-                <h1 class="titulo">OffGrid</h1>
-                <p>A OffGrid é o site que une oficinas mecânicas e clientes, oferecendo informações e avaliações dos serviços para que o cliente escolha melhor onde consertar o seu veículo, o mecânico alcance mais clientes e ambos possam interagir de forma prática e segura.</p>
+            <p class="sobre">A OffGrid é o site que une oficinas mecânicas e clientes, oferecendo informações e avaliações dos serviços para que o cliente escolha melhor onde consertar o seu veículo, o mecânico alcance mais clientes e ambos possam interagir de forma prática e segura.</p>
+            <section class="fazer_login">
+                <p></p>
                 <form class="formulario" action="lm-concluido.php" method="post">
-                    <h1>Fazer login</h1>
+                    <h1>Entrar como mecânico</h1>
                     <input class="campo_texto" name="email_mecanico" placeholder="Email" required>
                     <input class="campo_texto" name="senha_mecanico" placeholder="Senha" required type="password">
                     <button type="submit" class="botao_enviar">Login</button>
@@ -52,7 +44,7 @@
                     ?>
                 </form>
                 <form class="formulario" action="lc-concluido.php" method="post">
-                    <h1>Fazer login</h1>
+                    <h1>Entrar como dono de veículo</h1>
                     <input class="campo_texto" name="email_cliente" placeholder="Email" required>
                     <input class="campo_texto" name="senha_cliente" placeholder="Senha" required type="password">
                     <button type="submit" class="botao_enviar">Login</button>
@@ -73,12 +65,12 @@
                     ?>
                 </form>
             </section>
-            
+            <section class="cadastrar">
+                <p>Ainda não é cadastrado? Crie uma conta agora.</p>
+            </section>
         </main>
         <footer class="rodape">
             <p>OffGrid</p>
         </footer>
     </body>
-    <script src="script/menu.js"></script>
-    <script src="script/inscricao.js"></script>
 </html>

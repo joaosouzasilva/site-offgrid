@@ -6,7 +6,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 1.6rem;
+    margin-bottom: 2rem;
     .campo_texto{
         width: 100%;
         display: inline-block;
@@ -37,19 +37,18 @@
     }
     
     h1{
-        font-size: 1.2rem;
-        color: white;
+        @include fonte(1.28rem, white, bold);
         text-align: left;
         width: 100%;
     }
 }
 ;
 .botao_enviar{
-    @include fonte(1rem, white, bold);
+    @include fonte(1rem, white);
     background: linear-gradient(lighten($cor-offgrid, 15), lighten($cor-offgrid, 5));
     border: 0;
     border-radius: 0.3rem;
-    box-shadow: 1px 1px #ccc;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
     @extend %centralizar;
     display: block;
     padding: 0.5rem 0.8rem;
@@ -76,39 +75,33 @@
 
 //Usada na página inicial, para a sessão sobre ficar do lado do formulário.
 .pagina_login{
+    padding-top: 1.5rem;
     @media(min-width: 1000px){
-        display: grid;
-        grid-template-areas: 
-            "sobre sobre"
-            "mecanico cliente";
-        grid-gap: 1rem;
+        display: flex;
+        flex-direction: row;
     }
-    .above_the_fold{
-        grid-area: sobre;
-        width: 100%;
-        box-sizing: border-box;
-        p{
-            //@include fonte(1.35rem, darken($cor-offgrid, 20), bold);
-            @include fonte(1.25rem, white);
-            text-align: justify;
-            width: 85%;
-            @extend %centralizar;
-            margin-top: 1rem;
+    .sobre{
+        //@include fonte(1.35rem, darken($cor-offgrid, 20), bold);
+        @include fonte(1.35rem, white, bold);
+        text-align: justify;
+        width: 85%;
+        @extend %centralizar;
+        margin: 1.5rem;
+        @media(min-width: 1000px){
+            width: 50%;
+            margin: 2rem 3rem;
         }
-        background-image: url("../imagens/fundo.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
     }
-        .formularios_cliente{
-        grid-area: cliente;
-        width: 85%;
-        @extend %centralizar;
+    .fazer_login{
+        margin: 1.5rem;
+        @media(min-width: 1000px){
+            width: 50%;
+            margin: 2rem;
+        }
     }
-    .formularios_mecanico{
-        grid-area: mecanico;
-        width: 85%;
-        @extend %centralizar;
-    }
+    background-image: url("../imagens/fundo.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }

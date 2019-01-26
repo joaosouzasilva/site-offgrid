@@ -1,4 +1,4 @@
-<?php
+<?php/*
 require_once("logica-login.php");
 verificaLoginC();
 require_once("banco-usuario.php");
@@ -8,11 +8,13 @@ $id = mysqli_real_escape_string($conexao, $id);
 $query = "select * from mecanicos where id = '{$id}'";
 $resultado = mysqli_query($conexao, $query);
 $mecanico = mysqli_fetch_assoc($resultado);
-$endereco = $mecanico["endereco_oficina"];
+if($cliente['agendado'] != $mecanico["id"]){
+	header("Location: agendar?of={$mecanico}");
+}*/
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
+	<head>
         <title><?= $mecanico["nome_oficina"]; ?> - OffGrid</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +23,7 @@ $endereco = $mecanico["endereco_oficina"];
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     </head>
     <body>
-        <header class="cabecalho">
+    	<header class="cabecalho">
             <a href="#" class="hamburger">&#9776;</a>
             <img class="logo" src="imagens/logo.jpg" alt="Logo da OffGrid">
             <a href="logout-cliente.php" class="logar">
@@ -38,83 +40,215 @@ $endereco = $mecanico["endereco_oficina"];
             </nav>
         </header>
         <main class="conteudo">
-            <h1 class="titulo"><?= $mecanico["nome_oficina"]; ?></h1>
-            <h2 class="endereco_desc"><?= $mecanico["endereco_oficina"];?>, <?= $mecanico["numero_endereco"];?> - <?= $mecanico["bairro_oficina"];?></h2>
-            <section class="avaliar_oficina">
-                <div class="map_caixa">
-                    <div id="map"></div>
-                </div>
-                <?php if($cliente['agendado'] != $mecanico["id"]){ ?>
-                <form class="formulario" action="agendamento-feito.php" method="post">
-                    <h1>Agendar serviço</h1>
-                    <textarea rows="7" maxlength="255" name="mensagem" class="campo_texto campo_grande" placeholder="Escreva uma mensagem para o mecânico."></textarea>
-                    <button type="submit" class="botao_enviar" value="<?= $mecanico["id"]; ?>" name="mecanico_id">Enviar</button>
-                    <?php
-                    if(isset($_SESSION["avaliacao_enviada"])){ ?>
-                        <p class="senha_invalida"><?=$_SESSION["avaliacao_enviada"]?></p>
-                    <?php } unset($_SESSION["avaliacao_enviada"])
-                    ?>
-                </form>
-                <?php } else{?>
-                <form class="formulario" action="avaliacao-enviada.php" method="post">
-                    <h1>Avalie esta oficina</h1>
-                    <section class="avaliacao_texto">
-                        <textarea rows="7" maxlength="255" class="campo_texto" name="texto" placeholder="Comentário"></textarea>
-                    </section>
-                    <section class="de_sua_nota">
-                        <h1>Quando o serviço estiver pronto, dê sua nota</h1>
-                        <div class="rating">
-                            <label>
-                                <input type="radio" name="nota" value="1" />
-                                <span class="icon fa fa-star"></span>
-                            </label>
-                            <label>
-                                <input type="radio" name="nota" value="2" />
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                            </label>
-                            <label>
-                                <input type="radio" name="nota" value="3" />
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>   
-                            </label>
-                            <label>
-                                <input type="radio" name="nota" value="4" />
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                            </label>
-                            <label>
-                                <input type="radio" name="nota" value="5" />
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                            </label>
-                        </div>
-                    </section>
-                    <button type="submit" class="botao_enviar" value="<?= $mecanico["id"]; ?>" name="mecanico_id">Enviar</button>
-                    <?php
-                    if(isset($_SESSION["agendado"])){ ?>
-                        <p class="senha_invalida"><?=$_SESSION["agendado"]?></p>
-                    <?php } unset($_SESSION["agendado"])
-                    ?>
-                </form>
-            <?php } ?>
-            </section>
-            
+        	<h1 class="titulo">Avalie esta oficina</h1>
+        	<form>
+        		<div>
+        			<h1>Que nota você dá para o serviço</h1>
+        			<div class="rating">
+                        <label>
+                            <input type="radio" name="nota" value="1" />
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="2" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="3" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>   
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="4" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="5" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                    </div>
+        			<h1>Qual o principal motivo dessa nota?</h1>
+        			<input type="text" name="texto">
+        		</div>
+        		<div>
+        			<h1>Dê uma nota para o serviço nos seguintes quesitos:</h1>
+        			<h2>Confiança</h2>
+					<div class="rating">
+                        <label>
+                            <input type="radio" name="nota" value="1" />
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="2" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="3" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>   
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="4" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="5" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                    </div>
+                    <h2>Qualidade</h2>
+					<div class="rating">
+                        <label>
+                            <input type="radio" name="nota" value="1" />
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="2" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="3" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>   
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="4" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="5" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                    </div>
+                    <h2>Custo–Benefício</h2>
+					<div class="rating">
+                        <label>
+                            <input type="radio" name="nota" value="1" />
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="2" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="3" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>   
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="4" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="5" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                    </div>
+                    <h2>Agilidade</h2>
+					<div class="rating">
+                        <label>
+                            <input type="radio" name="nota" value="1" />
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="2" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="3" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>   
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="4" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="5" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                    </div>
+                    <h2>Organização</h2>
+					<div class="rating">
+                        <label>
+                            <input type="radio" name="nota" value="1" />
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="2" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="3" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>   
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="4" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                        <label>
+                            <input type="radio" name="nota" value="5" />
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                            <span class="icon fa fa-star"></span>
+                        </label>
+                    </div>
+        		</div>
+        		<button></button>
+        	</form>
         </main>
-        
-        <footer class="rodape">
-            <p>OffGrid</p>
-        </footer>
     </body>
-    <script src="script/menu.js"></script>
-    <script src="script/mapa.js"></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDurID7F61y52duIL5pdmyD3lKq1YvXQGU&callback=initMap">
-    </script>
 </html>
