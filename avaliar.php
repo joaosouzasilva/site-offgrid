@@ -84,29 +84,29 @@ if($cliente['agendado'] != $mecanico["id"]){
         			<h2>Confiança</h2>
 					<div class="rating">
                         <label>
-                            <input type="radio" name="nota" value="1" />
+                            <input type="radio" name="confianca" value="1" />
                             <span class="icon fa fa-star"></span>
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="2" />
+                            <input type="radio" name="confianca" value="2" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="3" />
+                            <input type="radio" name="confianca" value="3" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>   
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="4" />
+                            <input type="radio" name="confianca" value="4" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="5" />
+                            <input type="radio" name="confianca" value="5" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
@@ -117,29 +117,29 @@ if($cliente['agendado'] != $mecanico["id"]){
                     <h2>Qualidade</h2>
 					<div class="rating">
                         <label>
-                            <input type="radio" name="nota" value="1" />
+                            <input type="radio" name="qualidade" value="1" />
                             <span class="icon fa fa-star"></span>
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="2" />
+                            <input type="radio" name="qualidade" value="2" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="3" />
+                            <input type="radio" name="qualidade" value="3" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>   
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="4" />
+                            <input type="radio" name="qualidade" value="4" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="5" />
+                            <input type="radio" name="qualidade" value="5" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
@@ -150,29 +150,29 @@ if($cliente['agendado'] != $mecanico["id"]){
                     <h2>Custo–Benefício</h2>
 					<div class="rating">
                         <label>
-                            <input type="radio" name="nota" value="1" />
+                            <input type="radio" name="custo_beneficio" value="1" />
                             <span class="icon fa fa-star"></span>
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="2" />
+                            <input type="radio" name="custo_beneficio" value="2" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="3" />
+                            <input type="radio" name="custo_beneficio" value="3" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>   
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="4" />
+                            <input type="radio" name="custo_beneficio" value="4" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="5" />
+                            <input type="radio" name="custo_beneficio" value="5" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
@@ -183,29 +183,29 @@ if($cliente['agendado'] != $mecanico["id"]){
                     <h2>Agilidade</h2>
 					<div class="rating">
                         <label>
-                            <input type="radio" name="nota" value="1" />
+                            <input type="radio" name="agilidade" value="1" />
                             <span class="icon fa fa-star"></span>
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="2" />
+                            <input type="radio" name="agilidade" value="2" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="3" />
+                            <input type="radio" name="agilidade" value="3" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>   
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="4" />
+                            <input type="radio" name="agilidade" value="4" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="5" />
+                            <input type="radio" name="agilidade" value="5" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
@@ -216,29 +216,29 @@ if($cliente['agendado'] != $mecanico["id"]){
                     <h2>Organização</h2>
 					<div class="rating">
                         <label>
-                            <input type="radio" name="nota" value="1" />
+                            <input type="radio" name="organizacao" value="1" />
                             <span class="icon fa fa-star"></span>
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="2" />
+                            <input type="radio" name="organizacao" value="2" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="3" />
+                            <input type="radio" name="organizacao" value="3" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>   
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="4" />
+                            <input type="radio" name="organizacao" value="4" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                         </label>
                         <label>
-                            <input type="radio" name="nota" value="5" />
+                            <input type="radio" name="organizacao" value="5" />
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>
                             <span class="icon fa fa-star"></span>

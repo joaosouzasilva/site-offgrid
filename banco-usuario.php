@@ -52,8 +52,8 @@ function cadastraC($conexao, $email_cliente, $senha_cliente, $nome_cliente){
     $query = "insert into clientes (email_cliente, senha_cliente, nome_cliente) values ('{$email_cliente}', '{$senhaCMD5}', '{$nome_cliente}')";
     return mysqli_query($conexao, $query);
 }
-function adicionaAvaliacao($conexao, $texto, $nota, $mecanico, $cliente){
-    $query = "insert into comentarios (texto, nota, mecanico_id, cliente_id) values ('${texto}', '${nota}', '${mecanico}', '${cliente}')";
+function adicionaAvaliacao($conexao, $texto, $nota, $confianca, $qualidade, $custo_beneficio, $agilidade, $organizacao, $mecanico, $cliente){
+    $query = "insert into comentarios (texto, nota, confianca, qualidade, custo_beneficio, agilidade, organizacao, mecanico_id, cliente_id) values ('{$texto}', '{$nota}', '{$confianca}', '{$qualidade}', '{$custo_beneficio}', '{$agilidade}', '{$organizacao}', '{$mecanico}', '{$cliente}')";
     echo $query;
     return mysqli_query($conexao, $query);
 }
