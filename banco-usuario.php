@@ -16,7 +16,7 @@ function buscaUsuarioC($conexao, $email, $senha){
     $usuario = mysqli_fetch_assoc($resultado);
     return $usuario;
 }
-function buscaUsuarioPorID($conexao, $id){
+function buscaClientePorID($conexao, $id){
     $query = "select * from clientes where id = '{$id}'";
     $resultado = mysqli_query($conexao, $query);
     $usuario = mysqli_fetch_assoc($resultado);
@@ -44,15 +44,34 @@ function buscaUsuarioCC($conexao, $email){
 }
 function cadastraM($conexao, $nome_oficina, $telefone_oficina, $cep_oficina, $estado_oficina, $cidade_oficina, $bairro_oficina, $endereco_oficina, $numero_endereco, $complemento, $email_mecanico, $senha_mecanico){
     $senhaMMD5 = md5($senha_mecanico);
+    $nome_oficina = mysqli_real_escape_string($conexao, $nome_oficina);
+    $telefone_oficina = mysqli_real_escape_string($conexao, $telefone_oficina);
+    $cep_oficina = mysqli_real_escape_string($conexao, $cep_oficina);
+    $estado_oficina = mysqli_real_escape_string($conexao, $estado_oficina);
+    $cidade_oficina = mysqli_real_escape_string($conexao, $cidade_oficina);
+    $bairro_oficina = mysqli_real_escape_string($conexao, $bairro_oficina);
+    $endereco_oficina = mysqli_real_escape_string($conexao, $endereco_oficina);
+    $numero_endereco = mysqli_real_escape_string($conexao, $numero_endereco);
+    $complemento = mysqli_real_escape_string($conexao, $complemento);
+    $email_mecanico = mysqli_real_escape_string($conexao, $email_mecanico);
     $query = "insert into mecanicos (nome_oficina, telefone_oficina, cep_oficina, estado_oficina, cidade_oficina, bairro_oficina, endereco_oficina, numero_endereco, complemento, email_mecanico, senha_mecanico) values ('{$nome_oficina}', '{$telefone_oficina}', '{$cep_oficina}', '{$estado_oficina}', '{$cidade_oficina}', '{$bairro_oficina}', '{$endereco_oficina}', '{$numero_endereco}', '{$complemento}', '{$email_mecanico}', '{$senhaMMD5}')";
     return mysqli_query($conexao, $query);
 }
 function cadastraC($conexao, $email_cliente, $senha_cliente, $nome_cliente){
     $senhaCMD5 = md5($senha_cliente);
+    $email_cliente = mysqli_real_escape_string($conexao, $email_cliente);
+    $nome_cliente = mysqli_real_escape_string($conexao, $nome_cliente);
     $query = "insert into clientes (email_cliente, senha_cliente, nome_cliente) values ('{$email_cliente}', '{$senhaCMD5}', '{$nome_cliente}')";
     return mysqli_query($conexao, $query);
 }
 function adicionaAvaliacao($conexao, $texto, $nota, $confianca, $qualidade, $custo_beneficio, $agilidade, $organizacao, $mecanico, $cliente){
+    $texto = mysqli_real_escape_string($conexao, $texto);
+    $nota = mysqli_real_escape_string($conexao, $nota);
+    $confianca = mysqli_real_escape_string($conexao, $confianca);
+    $qualidade = mysqli_real_escape_string($conexao, $qualidade);
+    $custo_beneficio = mysqli_real_escape_string($conexao, $custo_beneficio);
+    $agilidade = mysqli_real_escape_string($conexao, $agilidade);
+    $organizacao = mysqli_real_escape_string($conexao, $organizacao);
     $query = "insert into comentarios (texto, nota, confianca, qualidade, custo_beneficio, agilidade, organizacao, mecanico_id, cliente_id) values ('{$texto}', '{$nota}', '{$confianca}', '{$qualidade}', '{$custo_beneficio}', '{$agilidade}', '{$organizacao}', '{$mecanico}', '{$cliente}')";
     echo $query;
     return mysqli_query($conexao, $query);
@@ -72,6 +91,16 @@ function media($conexao, $id){
     return mysqli_fetch_assoc($resultado);;
 }
 function adicionaMecanico($conexao, $nome, $bairro, $logradouro, $numero){
+    $nome = mysqli_real_escape_string($conexao, $nome);
+    $bairro = mysqli_real_escape_string($conexao, $bairro);
+    $logradouro = mysqli_real_escape_string($conexao, $logradouro);
+    $numero = mysqli_real_escape_string($conexao, $numero);
     $query = "insert into mecanicos (nome_oficina, bairro_oficina, endereco_oficina, numero_endereco) values ('{$nome}', '{$bairro}', '{$logradouro}', '{$numero}')";
     return mysqli_query($conexao, $query);
+}
+function agendar($conexao, $mecanico){
+    $mecanico = mysqli_real_escape_string($conexao, $mecanico);
+    $query = "update clientes set agendado = '{$mecanico}' where email_cliente = '{$_SESSION["cliente_logado"]}'";
+    mysqli_query($conexao, $query);
+    $_SESSION["agendado"] = "Mensagem enviada.";
 }

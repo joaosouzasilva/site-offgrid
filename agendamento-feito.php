@@ -29,9 +29,7 @@ try{
 
 	$mail->send();
 
-	$query = "update clientes set agendado = '{$mecanico}' where email_cliente = '{$_SESSION["cliente_logado"]}'";
-    mysqli_query($conexao, $query);
-    $_SESSION["agendado"] = "Mensagem enviada.";
+	agendar($conexao, $mecanico);
     header("Location: avaliar?of={$mecanico}");
 }
 catch(Exception $e){

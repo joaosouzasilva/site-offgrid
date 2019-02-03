@@ -9,6 +9,9 @@ $query = "select * from mecanicos where id = '{$id}'";
 $resultado = mysqli_query($conexao, $query);
 $mecanico = mysqli_fetch_assoc($resultado);
 $endereco = $mecanico["endereco_oficina"];
+if($cliente['agendado'] == $mecanico["id"]){
+    header("Location: avaliar");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -44,7 +47,6 @@ $endereco = $mecanico["endereco_oficina"];
                 <div class="map_caixa">
                     <div id="map"></div>
                 </div>
-                <?php if($cliente['agendado'] != $mecanico["id"]){ ?>
                 <form class="formulario" action="agendamento-feito.php" method="post">
                     <h1>Agendar serviço</h1>
                     <textarea rows="7" maxlength="255" name="mensagem" class="campo_texto campo_grande" placeholder="Escreva uma mensagem para o mecânico."></textarea>
@@ -55,59 +57,8 @@ $endereco = $mecanico["endereco_oficina"];
                     <?php } unset($_SESSION["avaliacao_enviada"])
                     ?>
                 </form>
-                <?php } else{?>
-                <form class="formulario" action="avaliacao-enviada.php" method="post">
-                    <h1>Avalie esta oficina</h1>
-                    <section class="avaliacao_texto">
-                        <textarea rows="7" maxlength="255" class="campo_texto" name="texto" placeholder="Comentário"></textarea>
-                    </section>
-                    <section class="de_sua_nota">
-                        <h1>Quando o serviço estiver pronto, dê sua nota</h1>
-                        <div class="rating">
-                            <label>
-                                <input type="radio" name="nota" value="1" />
-                                <span class="icon fa fa-star"></span>
-                            </label>
-                            <label>
-                                <input type="radio" name="nota" value="2" />
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                            </label>
-                            <label>
-                                <input type="radio" name="nota" value="3" />
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>   
-                            </label>
-                            <label>
-                                <input type="radio" name="nota" value="4" />
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                            </label>
-                            <label>
-                                <input type="radio" name="nota" value="5" />
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                                <span class="icon fa fa-star"></span>
-                            </label>
-                        </div>
-                    </section>
-                    <button type="submit" class="botao_enviar" value="<?= $mecanico["id"]; ?>" name="mecanico_id">Enviar</button>
-                    <?php
-                    if(isset($_SESSION["agendado"])){ ?>
-                        <p class="senha_invalida"><?=$_SESSION["agendado"]?></p>
-                    <?php } unset($_SESSION["agendado"])
-                    ?>
-                </form>
-            <?php } ?>
             </section>
-            
         </main>
-        
         <footer class="rodape">
             <p>OffGrid</p>
         </footer>
