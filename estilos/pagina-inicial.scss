@@ -1,0 +1,69 @@
+//Usada na página inicial, para a sessão sobre ficar do lado do formulário.
+.pagina_login{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    @media(min-width: 1000px){
+        min-height: 500px;
+        display: grid;
+        grid-template-areas: 
+            "sobre login"
+            "cadastro login";
+    }
+    .sobre{
+        //@include fonte(1.35rem, darken($cor-offgrid, 20), bold);
+        @include fonte(1.35rem, white, bold);
+        text-align: justify;
+        width: 85%;
+        @extend %centralizar;
+        margin: 1.5rem;
+        grid-area: sobre;
+        @media(min-width: 1000px){
+            margin: 2rem 3rem 0rem 3rem;
+        }
+    }
+    .fazer_login{
+        margin: 1.5rem;
+        grid-area: login;
+        @media(min-width: 1000px){
+            margin: 2rem;
+
+        }
+    }
+    .cadastrar{
+        @extend %centralizar;
+        width: 85%;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        grid-area: cadastro;
+        p{
+            margin-top: 1rem;
+            @include fonte(1.28rem, white);
+            text-align: center;
+            @media(min-width: 1000px){
+                text-align: left;
+                margin-top: 2.5rem;
+            }
+        }
+        .botoes_cadastrar{
+            display: flex;
+            flex-direction: column;
+            .botao_enviar{
+                margin-top: 1rem;
+            }
+            @media(min-width: 500px){
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            @media(min-width: 1000px){
+
+            }
+        }
+    }
+    background-image: url("../imagens/fundo.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}

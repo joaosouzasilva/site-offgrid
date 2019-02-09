@@ -11,19 +11,16 @@
     </head>
     <body>
         <header class="cabecalho">
-            <img class="logo" src="imagens/logo.jpg" alt="Logo da OffGrid">
-            <a href="#" class="logar">
-                <img class="user_icon" src="imagens/usericon.png">
-                Sair
+            <a href="" class="logo_link">
+                <img class="logo" src="imagens/logo.jpg" alt="Logo da OffGrid">
             </a>
-            </nav>
         </header>
         <main class="conteudo pagina_login">
             <p class="sobre">A OffGrid é o site que une oficinas mecânicas e clientes, oferecendo informações e avaliações dos serviços para que o cliente escolha melhor onde consertar o seu veículo, o mecânico alcance mais clientes e ambos possam interagir de forma prática e segura.</p>
             <section class="fazer_login">
                 <p></p>
                 <form class="formulario" action="lm-concluido.php" method="post">
-                    <h1>Entrar como mecânico</h1>
+                    <h1>Entre como mecânico e veja o que seus clientes acham de sua oficina</h1>
                     <input class="campo_texto" name="email_mecanico" placeholder="Email" required>
                     <input class="campo_texto" name="senha_mecanico" placeholder="Senha" required type="password">
                     <button type="submit" class="botao_enviar">Login</button>
@@ -44,7 +41,7 @@
                     ?>
                 </form>
                 <form class="formulario" action="lc-concluido.php" method="post">
-                    <h1>Entrar como dono de veículo</h1>
+                    <h1>Entre como cliente e descubra quais são as melhores oficinas de Caruaru</h1>
                     <input class="campo_texto" name="email_cliente" placeholder="Email" required>
                     <input class="campo_texto" name="senha_cliente" placeholder="Senha" required type="password">
                     <button type="submit" class="botao_enviar">Login</button>
@@ -66,7 +63,11 @@
                 </form>
             </section>
             <section class="cadastrar">
-                <p>Ainda não é cadastrado? Crie uma conta agora.</p>
+                <p>Ainda não é cadastrado? Crie uma conta agora</p>
+                <section class="botoes_cadastrar">
+                    <a href="/cadastro-mecanico" class="botao_enviar">Como oficina</a>
+                    <a href="/cadastro-cliente" class="botao_enviar">Como cliente</a>
+                </section>
             </section>
         </main>
         <footer class="rodape">

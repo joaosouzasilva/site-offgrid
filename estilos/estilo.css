@@ -45,7 +45,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.botao_enviar, .pagina_login .sobre, .oficina_lista, .avaliar_oficina, .formulario_avaliacao .botao_enviar, .rating {
+.cabecalho .logo_link, .botao_enviar, .formulario_inscricao, .avaliar_oficina, .formulario_avaliacao .botao_enviar, .rating, .pagina_login .sobre, .pagina_login .cadastrar {
   margin-left: auto;
   margin-right: auto; }
 
@@ -62,11 +62,18 @@ body {
   color: #9a5b0a;
   font-weight: bold;
   text-align: center; }
+  @media (min-width: 1000px) {
+    .titulo {
+      text-align: left;
+      margin-top: 1rem;
+      margin-left: 25rem;
+      margin-bottom: 2rem; } }
 
 a {
   text-decoration: none; }
 
 .cabecalho {
+  position: relative;
   width: 100%;
   background-color: black;
   display: flex;
@@ -74,6 +81,17 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: .5rem 0rem; }
+  .cabecalho:after {
+    background: linear-gradient(to right, #003c61 25%, #ae6d13 25%, #ae6d13 50%, #e3e3e3 50%, #e3e3e3 75%, #ae6d13 75%);
+    position: absolute;
+    content: '';
+    height: .3rem;
+    right: 0;
+    left: 0;
+    bottom: 0; }
+    @media (min-width: 1000px) {
+      .cabecalho:after {
+        height: .5rem; } }
   @media (min-width: 500px) {
     .cabecalho {
       padding: 1rem 0rem; } }
@@ -184,9 +202,9 @@ a {
   .formulario h1 {
     font-size: 1.28rem;
     color: white;
-    font-weight: bold;
     text-align: left;
-    width: 100%; }
+    width: 100%;
+    margin-bottom: .5rem; }
 
 .botao_enviar {
   font-size: 1rem;
@@ -212,44 +230,18 @@ a {
   color: #fc0400;
   font-size: .77rem; }
 
-.pagina_login {
-  padding-top: 1.5rem;
-  background-image: url("../imagens/fundo.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; }
-  @media (min-width: 1000px) {
-    .pagina_login {
-      display: flex;
-      flex-direction: row; } }
-  .pagina_login .sobre {
-    font-size: 1.35rem;
-    color: white;
-    font-weight: bold;
-    text-align: justify;
-    width: 85%;
-    margin: 1.5rem; }
-    @media (min-width: 1000px) {
-      .pagina_login .sobre {
-        width: 50%;
-        margin: 2rem 3rem; } }
-  .pagina_login .fazer_login {
-    margin: 1.5rem; }
-    @media (min-width: 1000px) {
-      .pagina_login .fazer_login {
-        width: 50%;
-        margin: 2rem; } }
+.formulario_inscricao {
+  width: 90%; }
 
 .rodape {
-  margin-top: 8rem;
   font-size: 0.77rem;
   text-indent: 1.6rem;
-  background-color: #eee;
+  background-color: #eeeeee;
   box-sizing: border-box;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: .5rem;
+  padding-top: 1rem;
   color: #0c0c0c; }
 
 .divisao {
@@ -264,19 +256,37 @@ a {
   width: 45%;
   background-color: black; }
 
-.oficina_lista {
-  margin-top: 3rem;
+.pagina_lista_oficinas {
   display: flex;
-  flex-direction: column;
-  width: 85%; }
-  @media (min-width: 500px) {
-    .oficina_lista {
-      width: 64%; } }
-  @media (min-width: 1000px) {
-    .oficina_lista {
-      width: 43%; } }
+  flex-wrap: wrap;
+  justify-content: space-around; }
+  .pagina_lista_oficinas .titulo {
+    text-align: left;
+    margin-left: 25rem;
+    width: 100%; }
+  .pagina_lista_oficinas .adicionar_oficina {
+    width: 30%; }
+    .pagina_lista_oficinas .adicionar_oficina h1 {
+      text-align: center;
+      font-size: 1.28rem;
+      color: black;
+      margin-bottom: .5rem; }
+  .pagina_lista_oficinas .oficina_lista {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 2rem; }
+    .pagina_lista_oficinas .oficina_lista h1 {
+      text-align: center;
+      font-size: 1.28rem;
+      color: black;
+      margin-bottom: .5rem; }
+    .pagina_lista_oficinas .oficina_lista .botao_anterior .botao_proximo {
+      width: 10%; }
 
 .oficina_item {
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -2652,5 +2662,60 @@ a {
   margin: 0;
   overflow: visible;
   clip: auto; }
+
+.pagina_login {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  background-image: url("../imagens/fundo.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+  @media (min-width: 1000px) {
+    .pagina_login {
+      min-height: 500px;
+      display: grid;
+      grid-template-areas: "sobre login" "cadastro login"; } }
+  .pagina_login .sobre {
+    font-size: 1.35rem;
+    color: white;
+    font-weight: bold;
+    text-align: justify;
+    width: 85%;
+    margin: 1.5rem;
+    grid-area: sobre; }
+    @media (min-width: 1000px) {
+      .pagina_login .sobre {
+        margin: 2rem 3rem 0rem 3rem; } }
+  .pagina_login .fazer_login {
+    margin: 1.5rem;
+    grid-area: login; }
+    @media (min-width: 1000px) {
+      .pagina_login .fazer_login {
+        margin: 2rem; } }
+  .pagina_login .cadastrar {
+    width: 85%;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    grid-area: cadastro; }
+    .pagina_login .cadastrar p {
+      margin-top: 1rem;
+      font-size: 1.28rem;
+      color: white;
+      text-align: center; }
+      @media (min-width: 1000px) {
+        .pagina_login .cadastrar p {
+          text-align: left;
+          margin-top: 2.5rem; } }
+    .pagina_login .cadastrar .botoes_cadastrar {
+      display: flex;
+      flex-direction: column; }
+      .pagina_login .cadastrar .botoes_cadastrar .botao_enviar {
+        margin-top: 1rem; }
+      @media (min-width: 500px) {
+        .pagina_login .cadastrar .botoes_cadastrar {
+          flex-direction: row;
+          justify-content: space-around; } }
 
 /*# sourceMappingURL=estilo.css.map */

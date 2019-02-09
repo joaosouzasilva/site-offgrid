@@ -1,5 +1,3 @@
-
-//Formulários um abaixo do outro ficam com bordas arredondadas só no topo do primeiro e embaixo do último.
 .formulario {
     box-sizing: border-box;
     display: flex;
@@ -37,12 +35,13 @@
     }
     
     h1{
-        @include fonte(1.28rem, white, bold);
+        @include fonte(1.28rem, white);
         text-align: left;
         width: 100%;
+        margin-bottom: .5rem;
     }
 }
-;
+
 .botao_enviar{
     @include fonte(1rem, white);
     background: linear-gradient(lighten($cor-offgrid, 15), lighten($cor-offgrid, 5));
@@ -73,35 +72,7 @@
     font-size: .77rem;
 }
 
-//Usada na página inicial, para a sessão sobre ficar do lado do formulário.
-.pagina_login{
-    padding-top: 1.5rem;
-    @media(min-width: 1000px){
-        display: flex;
-        flex-direction: row;
-    }
-    .sobre{
-        //@include fonte(1.35rem, darken($cor-offgrid, 20), bold);
-        @include fonte(1.35rem, white, bold);
-        text-align: justify;
-        width: 85%;
-        @extend %centralizar;
-        margin: 1.5rem;
-        @media(min-width: 1000px){
-            width: 50%;
-            margin: 2rem 3rem;
-        }
-    }
-    .fazer_login{
-        margin: 1.5rem;
-        @media(min-width: 1000px){
-            width: 50%;
-            margin: 2rem;
-        }
-    }
-    background-image: url("../imagens/fundo.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
+.formulario_inscricao{
+    width: 90%;
+    @extend %centralizar;
 }

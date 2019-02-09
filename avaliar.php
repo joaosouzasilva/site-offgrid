@@ -1,4 +1,4 @@
-<?php/*
+<?php
 require_once("logica-login.php");
 verificaLoginC();
 require_once("banco-usuario.php");
@@ -7,10 +7,15 @@ $id = $_GET["of"];
 $id = mysqli_real_escape_string($conexao, $id);
 $query = "select * from mecanicos where id = '{$id}'";
 $resultado = mysqli_query($conexao, $query);
+if(mysqli_num_rows($resultado) == 0){
+    header("Location: oficinas");
+    die();
+}
 $mecanico = mysqli_fetch_assoc($resultado);
-if($cliente['agendado'] != $mecanico["id"]){
+if(($cliente['agendado'] != $mecanico["id"])){
 	header("Location: agendar?of={$mecanico}");
-}*/
+    die();
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

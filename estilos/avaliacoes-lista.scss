@@ -1,18 +1,40 @@
-.oficina_lista{
-    @extend %centralizar;
-    margin-top: 3rem;
+.pagina_lista_oficinas{
     display: flex;
-    flex-direction: column;
-    width: 85%;
-    
-    @media(min-width: 500px){
-        width: 64%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .titulo{
+        text-align: left;
+        margin-left: 25rem;
+        width: 100%;
     }
-    @media(min-width: 1000px){
-        width: 43%;
+    .adicionar_oficina{
+        width: 30%;
+        h1{
+            text-align: center;
+            @include fonte(1.28rem, black);
+            margin-bottom: .5rem;
+        }
     }
+    .oficina_lista{
+        width: 60%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-bottom: 2rem;
+        h1{
+            text-align: center;
+            @include fonte(1.28rem, black);
+            margin-bottom: .5rem;
+        }
+        .botao_anterior .botao_proximo{
+            width: 10%;
+        }
+    }
+
 }
+
 .oficina_item{
+    width: 100%;
     display: flex;
     flex-direction: column;
     a{

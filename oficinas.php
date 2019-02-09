@@ -34,7 +34,7 @@ for($i = 0; $i < count($vetor_mecanicos_join); $i++){
     }
     $vetor_medias[$j] += $vetor_notas[$i];
     $n++;
-    if(($vetor_mecanicos_join[$i] != $vetor_mecanicos_join[$i+1]) && ($i+1 != count($vetor_mecanicos_join))){
+    if(($i+1 != count($vetor_mecanicos_join)) && ($vetor_mecanicos_join[$i] != $vetor_mecanicos_join[$i+1])){
         $vetor_medias[$j] /= $n;
         $n = 0;
         $j++;
@@ -43,7 +43,9 @@ for($i = 0; $i < count($vetor_mecanicos_join); $i++){
     }
 
 }
+array_multisort($vetor_notas, SORT_DESC, $vetor_mecanicos_join, SORT_ASC);
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -71,24 +73,15 @@ for($i = 0; $i < count($vetor_mecanicos_join); $i++){
                 </ul>
             </nav>
         </header>
-        <main class="conteudo">
+        <main class="conteudo pagina_lista_oficinas">
             <h1 class="titulo">Avalie uma oficina</h1>
-            <section class="avaliar_oficina">
-                <form class="formulario" action="nova-oficina.php" method="post">
-                    <h1>Nova oficina</h1>
-                        <input class="campo_texto" name="nome" placeholder="Nome" required>
-                        <input class="campo_texto" name="bairro" placeholder="Bairro" required>
-                        <input class="campo_texto" name="logradouro" placeholder="Endereço" required>
-                        <input class="campo_texto" name="numero" placeholder="Número">
-                    <button type="submit" class="botao_enviar">Enviar</button>
-                </form>
-            </section>
             <section class="oficina_lista">
+                <h1>Lista de oficinas</h1>
                 <?php
                 for($j = $inicio; $j < ($inicio + $total_reg) && $j < count($vetor_mecanicos); $j++){
                     $oficinas = buscaMecanicoPorID($conexao, $vetor_mecanicos[$j]); ?>
                 <div class="oficina_item">
-                    <a href="avaliar?of=<?= $oficinas['id']; ?>"><?= $oficinas['nome_oficina']; ?></a>
+                    <a href="agendar?of=<?= $oficinas['id']; ?>"><?= $oficinas['nome_oficina']; ?></a>
                     <h2>Endereço: <?= $oficinas["endereco_oficina"];?>, <?= $oficinas["numero_endereco"];?> - <?= $oficinas["bairro_oficina"];?></h2>
                     <div class="nota">
                         <?php
@@ -109,14 +102,24 @@ for($i = 0; $i < count($vetor_mecanicos_join); $i++){
                 </div><?php } ?>
                 <?php 
                 if ($pc>1) {?>
-                <div class="botao_enviar">
+                <div class="botao_enviar botao_anterior">
                     <a href='?pagina=<?= $anterior; ?>'>Anterior</a>
                 </div>
                 <?php }
                 if ($pc<$tp) {?>
-                <div class="botao_enviar">
+                <div class="botao_enviar botao_proximo">
                     <a href='?pagina=<?= $proximo; ?>'>Próximo</a><?php } ?>
                 </div>
+            </section>
+            <section class="adicionar_oficina">
+                <form class="formulario" action="nova-oficina.php" method="post">
+                    <h1>Adicionar oficina</h1>
+                        <input class="campo_texto" name="nome" placeholder="Nome" required>
+                        <input class="campo_texto" name="bairro" placeholder="Bairro" required>
+                        <input class="campo_texto" name="logradouro" placeholder="Endereço" required>
+                        <input class="campo_texto" name="numero" placeholder="Número">
+                    <button type="submit" class="botao_enviar">Enviar</button>
+                </form>
             </section>
         </main>
         <footer class="rodape">

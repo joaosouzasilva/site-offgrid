@@ -7,10 +7,15 @@ $id = $_GET["of"];
 $id = mysqli_real_escape_string($conexao, $id);
 $query = "select * from mecanicos where id = '{$id}'";
 $resultado = mysqli_query($conexao, $query);
+if(mysqli_num_rows($resultado) == 0){
+    header("Location: oficinas");
+    die();
+}
 $mecanico = mysqli_fetch_assoc($resultado);
 $endereco = $mecanico["endereco_oficina"];
 if($cliente['agendado'] == $mecanico["id"]){
-    header("Location: avaliar");
+    header("Location: avaliar?of={$mecanico}");
+    die();
 }
 ?>
 <!DOCTYPE html>
