@@ -64,16 +64,8 @@ array_multisort($vetor_notas, SORT_DESC, $vetor_mecanicos_join, SORT_ASC);
                 <img class="user_icon" src="imagens/usericon.png">
                 Sair
             </a>
-            <nav class="painel_nav">
-                <ul>
-                    <li><a href="https://offgridoficinas.wixsite.com/website">INÍCIO</a></li>
-                    <li><a>OFICINAS</a></li>
-                    <li><a>OFERTAS</a></li>
-                    <li><a>NOVIDADES</a></li>
-                </ul>
-            </nav>
         </header>
-        <main class="conteudo pagina_lista_oficinas">
+        <main class="pagina_lista_oficinas">
             <h1 class="titulo">Avalie uma oficina</h1>
             <section class="oficina_lista">
                 <h1>Lista de oficinas</h1>

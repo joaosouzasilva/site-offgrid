@@ -10,20 +10,11 @@
     </head>
     <body>
         <header class="cabecalho">
-            <a href="#" class="hamburger">&#9776;</a>
             <img class="logo" src="imagens/logo.jpg" alt="Logo da OffGrid">
             <a href="#" class="logar">
                 <img class="user_icon" src="imagens/usericon.png">
                 Sair
             </a>
-            <nav class="painel_nav">
-                <ul>
-                    <li><a href="https://offgridoficinas.wixsite.com/website">INÍCIO</a></li>
-                    <li><a>OFICINAS</a></li>
-                    <li><a>OFERTAS</a></li>
-                    <li><a>NOVIDADES</a></li>
-                </ul>
-            </nav>
         </header>
         <main class="conteudo">
             <h1 class="titulo">Criar conta - Cliente</h1>

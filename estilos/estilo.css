@@ -61,13 +61,13 @@ body {
   font-size: 1.62rem;
   color: #9a5b0a;
   font-weight: bold;
-  text-align: center; }
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem; }
   @media (min-width: 1000px) {
     .titulo {
       text-align: left;
-      margin-top: 1rem;
-      margin-left: 25rem;
-      margin-bottom: 2rem; } }
+      margin-left: 25rem; } }
 
 a {
   text-decoration: none; }
@@ -177,28 +177,6 @@ a {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2rem; }
-  .formulario .campo_texto {
-    width: 100%;
-    display: inline-block;
-    font-size: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    box-sizing: border-box;
-    border: 1px solid #aaa;
-    border-radius: 2px;
-    margin-bottom: 1rem;
-    box-shadow: inset 1px 1px #ccc; }
-    @media (min-width: 500px) {
-      .formulario .campo_texto {
-        width: calc(50% - 0.5rem); } }
-  @media (min-width: 500px) {
-    .formulario .campo_grande {
-      width: 100%; } }
-  @media (min-width: 1000px) {
-    .formulario .campo_grande {
-      width: 100%; } }
   .formulario h1 {
     font-size: 1.28rem;
     color: white;
@@ -206,6 +184,29 @@ a {
     width: 100%;
     margin-bottom: .5rem; }
 
+.campo_texto {
+  width: 100%;
+  display: inline-block;
+  font-size: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  box-sizing: border-box;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+  box-shadow: inset 1px 1px #ccc; }
+  @media (min-width: 500px) {
+    .campo_texto {
+      width: calc(50% - 0.5rem); } }
+
+@media (min-width: 500px) {
+  .campo_grande {
+    width: 100%; } }
+@media (min-width: 1000px) {
+  .campo_grande {
+    width: 100%; } }
 .botao_enviar {
   font-size: 1rem;
   color: white;
@@ -264,26 +265,28 @@ a {
     text-align: left;
     margin-left: 25rem;
     width: 100%; }
-  .pagina_lista_oficinas .adicionar_oficina {
-    width: 30%; }
-    .pagina_lista_oficinas .adicionar_oficina h1 {
-      text-align: center;
-      font-size: 1.28rem;
-      color: black;
-      margin-bottom: .5rem; }
-  .pagina_lista_oficinas .oficina_lista {
-    width: 60%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-bottom: 2rem; }
-    .pagina_lista_oficinas .oficina_lista h1 {
-      text-align: center;
-      font-size: 1.28rem;
-      color: black;
-      margin-bottom: .5rem; }
-    .pagina_lista_oficinas .oficina_lista .botao_anterior .botao_proximo {
-      width: 10%; }
+
+.adicionar_oficina {
+  width: 30%; }
+  .adicionar_oficina h1 {
+    text-align: center;
+    font-size: 1.28rem;
+    color: black;
+    margin-bottom: .5rem; }
+
+.oficina_lista {
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 2rem; }
+  .oficina_lista h1 {
+    text-align: center;
+    font-size: 1.28rem;
+    color: black;
+    margin-bottom: .5rem; }
+  .oficina_lista .botao_anterior .botao_proximo {
+    width: 10%; }
 
 .oficina_item {
   width: 100%;
@@ -307,6 +310,23 @@ a {
     .oficina_item .nota .estrela {
       color: gold;
       margin-right: 0.2rem; }
+
+.pagina_avaliacoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+  .pagina_avaliacoes .titulo {
+    text-align: left;
+    margin-left: 25rem;
+    width: 100%; }
+
+.avaliacoes_detalhes {
+  width: 30%; }
+  .avaliacoes_detalhes h1 {
+    text-align: center;
+    font-size: 1.28rem;
+    color: black;
+    margin-bottom: .5rem; }
 
 .endereco_desc {
   text-indent: 1rem; }
@@ -2717,5 +2737,16 @@ a {
         .pagina_login .cadastrar .botoes_cadastrar {
           flex-direction: row;
           justify-content: space-around; } }
+
+.pagina_avaliar .formulario_avaliar h1 {
+  text-align: left;
+  font-size: 1.28rem;
+  color: black;
+  margin-bottom: .5rem; }
+@media (min-width: 1000px) {
+  .pagina_avaliar .formulario_avaliar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; } }
 
 /*# sourceMappingURL=estilo.css.map */

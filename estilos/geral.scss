@@ -10,11 +10,12 @@ body{
 .titulo{
         @include fonte(1.62rem, $cor-offgrid, bold);
         text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
         @media(min-width: 1000px){
             text-align: left;
-            margin-top: 1rem;
             margin-left: 25rem;
-            margin-bottom: 2rem;
+            
         }
     }
 a {

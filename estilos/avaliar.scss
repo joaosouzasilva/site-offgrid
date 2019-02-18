@@ -1,0 +1,18 @@
+.pagina_avaliar{
+	.formulario_avaliar{
+		h1{
+			text-align: left;
+	        @include fonte(1.28rem, black);
+	        margin-bottom: .5rem;
+		}
+		@media(min-width: 1000px){
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
+		.nota_geral{
+		}
+		.detalhes_da_nota{
+		}
+	}
+}

@@ -40,19 +40,12 @@ $nps = NPS($conexao, $mecanico['id'], $tr);
                 <img class="user_icon" src="imagens/usericon.png">
                 Sair
             </a>
-            <nav class="painel_nav">
-                <ul>
-                    <li><a href="https://offgridoficinas.wixsite.com/website">INÍCIO</a></li>
-                    <li><a>OFICINAS</a></li>
-                    <li><a>OFERTAS</a></li>
-                    <li><a>NOVIDADES</a></li>
-                </ul>
-            </nav>
         </header>
-        <main class="conteudo">
-            <h1 class="titulo">Avaliações</h1>
+        <main class="pagina_avaliacoes">
             <h1 class="titulo"><?= $mecanico['nome_oficina'] ?></h1>
+            <h1 class="titulo">Avaliações</h1>
             <section class="oficina_lista">
+                <h1>Comentários</h1>
                 <?php while ($comentarios = mysqli_fetch_assoc($limite)) { ?>
                     <div class="oficina_item">
                         <p><?= $comentarios['cliente_id'] ?></p>
@@ -75,8 +68,11 @@ $nps = NPS($conexao, $mecanico['id'], $tr);
                         </div>
                     </div>
                 <?php }
-
                 ?>
+            </section>
+            <section class="avaliacoes_detalhes">
+                <h1>Detalhe</h1>
+                
             </section>
         </main>
     </body>

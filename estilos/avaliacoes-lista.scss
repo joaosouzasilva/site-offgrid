@@ -7,30 +7,31 @@
         margin-left: 25rem;
         width: 100%;
     }
-    .adicionar_oficina{
-        width: 30%;
-        h1{
-            text-align: center;
-            @include fonte(1.28rem, black);
-            margin-bottom: .5rem;
-        }
-    }
-    .oficina_lista{
-        width: 60%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        margin-bottom: 2rem;
-        h1{
-            text-align: center;
-            @include fonte(1.28rem, black);
-            margin-bottom: .5rem;
-        }
-        .botao_anterior .botao_proximo{
-            width: 10%;
-        }
-    }
+}
 
+.adicionar_oficina{
+    width: 30%;
+    h1{
+        text-align: center;
+        @include fonte(1.28rem, black);
+        margin-bottom: .5rem;
+    }
+}
+
+.oficina_lista{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    h1{
+        text-align: center;
+        @include fonte(1.28rem, black);
+        margin-bottom: .5rem;
+    }
+    .botao_anterior .botao_proximo{
+        width: 10%;
+    }
 }
 
 .oficina_item{
@@ -59,4 +60,24 @@
     box-sizing: border-box;
     margin-bottom: 0.5rem;
     background-color: $cor-offgrid;
+}
+
+.pagina_avaliacoes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .titulo{
+        text-align: left;
+        margin-left: 25rem;
+        width: 100%;
+    }
+}
+
+.avaliacoes_detalhes{
+    width: 30%;
+    h1{
+        text-align: center;
+        @include fonte(1.28rem, black);
+        margin-bottom: .5rem;
+    }
 }
