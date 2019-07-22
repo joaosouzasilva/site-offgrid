@@ -262,20 +262,30 @@ a {
   flex-wrap: wrap;
   justify-content: space-around; }
   .pagina_lista_oficinas .titulo {
-    text-align: left;
-    margin-left: 25rem;
-    width: 100%; }
+    width: 100%;
+    order: 1; }
+    @media (min-width: 1000px) {
+      .pagina_lista_oficinas .titulo {
+        text-align: left;
+        margin-left: 25rem;
+        width: 100%; } }
 
 .adicionar_oficina {
-  width: 30%; }
+  width: 60%;
+  order: 2; }
   .adicionar_oficina h1 {
     text-align: center;
     font-size: 1.28rem;
     color: black;
-    margin-bottom: .5rem; }
+    margin-bottom: .5rem;
+    order: 3; }
+  @media (min-width: 1000px) {
+    .adicionar_oficina {
+      width: 40%; } }
 
 .oficina_lista {
-  width: 60%;
+  order: 3;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -287,6 +297,10 @@ a {
     margin-bottom: .5rem; }
   .oficina_lista .botao_anterior .botao_proximo {
     width: 10%; }
+  @media (min-width: 1000px) {
+    .oficina_lista {
+      width: 50%;
+      order: 2; } }
 
 .oficina_item {
   width: 100%;

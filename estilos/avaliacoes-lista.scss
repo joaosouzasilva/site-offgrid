@@ -3,23 +3,33 @@
     flex-wrap: wrap;
     justify-content: space-around;
     .titulo{
-        text-align: left;
-        margin-left: 25rem;
         width: 100%;
+        order: 1;
+        @media(min-width: 1000px){
+            text-align: left;
+            margin-left: 25rem;
+            width: 100%;
+        }
     }
 }
 
 .adicionar_oficina{
-    width: 30%;
+    width: 60%;
+    order: 2;
     h1{
         text-align: center;
         @include fonte(1.28rem, black);
         margin-bottom: .5rem;
+        order: 3;
+    }
+    @media(min-width: 1000px){
+        width: 40%;
     }
 }
 
 .oficina_lista{
-    width: 60%;
+    order: 3;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -31,6 +41,10 @@
     }
     .botao_anterior .botao_proximo{
         width: 10%;
+    }
+    @media(min-width: 1000px){
+            width: 50%;
+            order: 2;
     }
 }
 
