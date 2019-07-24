@@ -81,9 +81,12 @@
     flex-wrap: wrap;
     justify-content: space-around;
     .titulo{
-        text-align: left;
-        margin-left: 25rem;
         width: 100%;
+        @media(min-width: 1000px){
+            text-align: left;
+            margin-left: 25rem;
+            width: 100%;
+        }
     }
 }
 

@@ -45,7 +45,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.cabecalho .logo_link, .botao_enviar, .formulario_inscricao, .avaliar_oficina, .formulario_avaliacao .botao_enviar, .rating, .pagina_login .sobre, .pagina_login .cadastrar {
+.cabecalho .logo_link, .cabecalho .logo_link_responsivo, .botao_enviar, .formulario_inscricao, .avaliar_oficina, .formulario_avaliacao .botao_enviar, .rating, .pagina_login .sobre, .pagina_login .cadastrar {
   margin-left: auto;
   margin-right: auto; }
 
@@ -103,8 +103,16 @@ a {
     @media (min-width: 500px) {
       .cabecalho .hamburger {
         display: none; } }
+  .cabecalho .logo_link {
+    display: none; }
+    @media (min-width: 500px) {
+      .cabecalho .logo_link {
+        display: inline; } }
+  @media (min-width: 500px) {
+    .cabecalho .logo_link_responsivo {
+      display: none; } }
   .cabecalho .logo {
-    width: 17rem;
+    width: 10rem;
     max-width: 100%;
     padding: .5rem; }
     @media (min-width: 500px) {
@@ -330,9 +338,12 @@ a {
   flex-wrap: wrap;
   justify-content: space-around; }
   .pagina_avaliacoes .titulo {
-    text-align: left;
-    margin-left: 25rem;
     width: 100%; }
+    @media (min-width: 1000px) {
+      .pagina_avaliacoes .titulo {
+        text-align: left;
+        margin-left: 25rem;
+        width: 100%; } }
 
 .avaliacoes_detalhes {
   width: 30%; }
