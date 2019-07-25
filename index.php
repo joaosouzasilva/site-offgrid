@@ -11,8 +11,11 @@
     </head>
     <body>
         <header class="cabecalho">
-            <a href="" class="logo_link">
+            <a href="http://www.offgrid.com.br" class="logo_link">
                 <img class="logo" src="imagens/logo.jpg" alt="Logo da OffGrid">
+            </a>
+            <a href="http://www.offgrid.com.br" class="logo_link_responsivo">
+                <img class="logo" src="imagens/ESSE.jpg" alt="Logo da OffGrid">
             </a>
         </header>
         <main class="conteudo pagina_login">

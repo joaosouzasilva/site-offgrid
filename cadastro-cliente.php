@@ -10,10 +10,11 @@
     </head>
     <body>
         <header class="cabecalho">
-            <img class="logo" src="imagens/logo.jpg" alt="Logo da OffGrid">
-            <a href="#" class="logar">
-                <img class="user_icon" src="imagens/usericon.png">
-                Sair
+            <a href="http://www.offgrid.com.br" class="logo_link">
+                <img class="logo" src="imagens/logo.jpg" alt="Logo da OffGrid">
+            </a>
+            <a href="http://www.offgrid.com.br" class="logo_link_responsivo">
+                <img class="logo" src="imagens/ESSE.jpg" alt="Logo da OffGrid">
             </a>
         </header>
         <main class="conteudo">

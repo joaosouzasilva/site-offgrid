@@ -30,8 +30,12 @@ if($cliente['agendado'] == $mecanico["id"]){
     </head>
     <body>
         <header class="cabecalho">
-            <a href="#" class="hamburger">&#9776;</a>
-            <img class="logo" src="imagens/logo.jpg" alt="Logo da OffGrid">
+            <a href="http://www.offgrid.com.br" class="logo_link">
+                <img class="logo" src="imagens/logo.jpg" alt="Logo da OffGrid">
+            </a>
+            <a href="http://www.offgrid.com.br" class="logo_link_responsivo">
+                <img class="logo" src="imagens/ESSE.jpg" alt="Logo da OffGrid">
+            </a>
             <a href="logout-cliente.php" class="logar">
                 <img class="user_icon" src="imagens/usericon.png">
                 Sair
